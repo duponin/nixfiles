@@ -6,8 +6,8 @@
 
 {
   imports = [ # Include the results of the hardware scan.
+    ../../modules
     ./hardware-configuration.nix
-    ../../modules/yubikey.nix
   ];
 
   # Use the systemd-boot EFI boot loader.
