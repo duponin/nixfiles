@@ -14,6 +14,9 @@
         "networkmanager" # Network
         "wheel" # Sudo
       ];
+      hashedPassword =
+        "$6$B4aVuuUQeBFz$Zg6I0kxFqJTPw/.wbPwzdWXYV.OpNkHhWbPJZPW0iBpDP.EC1860IsnVlZhOSnpzGce0WZ/qFNQNPNsDkapYb0";
+
     };
   };
 }
