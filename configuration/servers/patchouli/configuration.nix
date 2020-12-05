@@ -2,10 +2,10 @@
 
 {
   imports = [ # Include the results of the hardware scan.
+    ../../common/servers
     ./hardware-configuration.nix
   ];
 
-  # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/sda";
@@ -13,14 +13,13 @@
   # Set your time zone.
   time.timeZone = "Europe/Paris";
 
-  # Set networking
   networking = {
-    hostName = "youmou";
+    hostName = "patchouli";
     useDHCP = false;
     interfaces.ens18 = {
       ipv4 = {
         addresses = [{
-          address = "10.0.20.10";
+          address = "10.0.20.20";
           prefixLength = 24;
         }];
         routes = [{
@@ -33,30 +32,37 @@
     nameservers = [ "185.233.100.100" "185.233.100.101" "1.1.1.1" ];
   };
 
-  services.nginx = {
-    enable = true;
-    recommendedGzipSettings = true;
-    recommendedOptimisation = true;
-    recommendedProxySettings = true;
-    recommendedTlsSettings = true;
-    # other Nginx options
-    virtualHosts."graphs.dupon.in" = {
-      enableACME = true;
-      forceSSL = true;
-      locations."/" = {
-        proxyPass = "http://10.0.20.20:3000";
-        extraConfig =
-          # required when the target is also TLS server with multiple hosts
-          "proxy_ssl_server_name on;" +
-          # required when the server wants to use HTTP Authentication
-          "proxy_pass_header Authorization;";
-      };
+  services = {
+    prometheus = {
+      enable = true;
+      scrapeConfigs = [{
+        job_name = "pleroma";
+        scrape_interval = "10s";
+        metrics_path = "/api/pleroma/app_metrics";
+        static_configs = [{
+          targets = [
+            "freespeechextremist.com"
+            "neckbeard.xyz"
+            "pl.jeder.pl"
+            "princess.cat"
+            "shitposter.club"
+            "udongein.xyz"
+            "zefirchik.xyz"
+          ];
+        }];
+        basic_auth = {
+          username = "myusername";
+          password = "mypassword";
+        };
+        scheme = "https";
+      }];
     };
-  };
-
-  security.acme = {
-    acceptTerms = true;
-    certs = { "graphs.dupon.in".email = "pwet+admin@dupon.in"; };
+    grafana = {
+      enable = true;
+      addr = "0.0.0.0";
+      domain = "graphs.dupon.in";
+      auth.anonymous.enable = true;
+    };
   };
 
   # Configure network proxy if necessary
@@ -84,16 +90,6 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.duponin = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJh6W2o61dlOIcBXeWRhXWSYD/W8FDVf3/p4FNfL2L6p duponin@rilakkuma"
-    ];
-  };
-  security.sudo.wheelNeedsPassword = false;
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [ vim ];
@@ -112,7 +108,7 @@
   services.openssh.enable = true;
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 80 443 ];
+  networking.firewall.allowedTCPPorts = [ 22 3000 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;

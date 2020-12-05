@@ -6,7 +6,6 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-    ../../../modules
     ./hardware-configuration.nix
   ];
 
@@ -223,9 +222,6 @@
     KERNEL=="ttyACM*", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789B]?", MODE:="0666"
   '';
 
-  # Enable YubiKey support
-  services.yubikey.enable = true;
-
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
@@ -269,14 +265,14 @@
   users.defaultUserShell = pkgs.zsh;
 
   users.users = {
-    duponin = {
-      isNormalUser = true;
-      extraGroups =
-        [ "wheel" "libvirt" "adbusers" "docker" "networkmanager" "ad_family" ];
-    };
     antonin = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "libvirt" "networkmanager" "docker" "ad_family" ];
+      extraGroups = [
+        "docker" # Docker
+        "libvirt" # Virtualisation
+        "networkmanager" # Network
+        "wheel" # Sudo
+      ];
     };
   };
 
