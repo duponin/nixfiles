@@ -1,5 +1,6 @@
 { config, pkgs, lib, ... }: {
 
+  environment.systemPackages = with pkgs; [ git ];
   users.users.duponin = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
