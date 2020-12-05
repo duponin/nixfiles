@@ -44,6 +44,7 @@
             "freespeechextremist.com"
             "neckbeard.xyz"
             "pl.jeder.pl"
+            "pleroma.amoonrabbit.reisen"
             "princess.cat"
             "shitposter.club"
             "udongein.xyz"
