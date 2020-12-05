@@ -73,5 +73,5 @@
     };
   };
 
-  networking.system.stateVersion = "20.09";
+  system.stateVersion = "20.09";
 }
