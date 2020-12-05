@@ -1,5 +1,5 @@
 { config, pkgs, lib, ... }: {
-  imports = [ ../../modules ];
+  imports = [ ../../../modules ];
 
   # Enable YubiKey support
   services.yubikey.enable = true;
