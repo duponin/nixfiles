@@ -281,6 +281,46 @@
   };
 
   programs.ssh.startAgent = true;
+  programs.zsh.shellAliases = {
+    ":q" = "echo 'You are not in Vim, you stupid...'";
+    RM = "rm -rdvf";
+    SRM = "sudo rm -rdvf";
+    df = "df -h";
+    du = "du -h";
+    ezsh = "echo 'Reloading ZSH...' && exec zsh";
+    free = "free -h";
+    hc = "herbstclient";
+    history = "history -i";
+    hsrc = "$EDITOR ~/.config/herbstluftwm/autostart";
+    i3rc = "$EDITOR ~/.config/i3/config";
+    k = "kak";
+    krc = "$EDITOR ~/.config/kak/kakrc";
+    llr = "ls -lR";
+    lr = "ls -R";
+    meteo = "curl http://wttr.in/$CITY";
+    meteoo = "curl http://v2.wttr.in/$CITY";
+    miec = "mix ecto.create";
+    miem = "mix ecto.migrate";
+    miex = "iex -S mix";
+    mips = "mix phx.server";
+    mpnv = "mpv --no-video";
+    mutt = "neomutt";
+    mvv = "mv -v";
+    nrb = "sudo nixos-rebuild build";
+    nrdb = "sudo nixos-rebuild dry-build";
+    nrs = "sudo nixos-rebuild switch";
+    nrt = "sudo nixos-rebuild test";
+    powertop = "sudo powertop";
+    spro = "ssh -D 1080 -q -C -N";
+    v = "vim";
+    vg = "vagrant";
+    vgd = "vagrant destroy";
+    vgp = "vagrant provision";
+    vgs = "vagrant ssh";
+    vgup = "vagrant up";
+    vgupp = "vagrant up --provision";
+    ztf = "zathura --mode fullscreen";
+  };
   programs.zsh.interactiveShellInit = ''
     export ZSH=${pkgs.oh-my-zsh}/share/oh-my-zsh/
 
@@ -290,11 +330,11 @@
     HIST_STAMPS="yyyy-mm-dd"
 
     # Customize your oh-my-zsh options here
-    plugins=(
-      git
-      sudo
-      fancy-ctrl-z
-    )
+    # plugins=(
+    #   git
+    #   sudo
+    #   fancy-ctrl-z
+    # )
 
     source $ZSH/oh-my-zsh.sh
     source ${pkgs.zsh-completions}/share/zsh/site-functions/
@@ -309,7 +349,6 @@
     export GIT_PAGER="delta --theme 'Monokai Extended Bright'"
     #export GPG_TTY=$(tty)
     export MANPAGER=less
-    export MDV_THEME=light
     export OPENER=$EDITOR
     export PAGER=bat
     export PATH=$PATH:~/.emacs.d/bin
@@ -319,55 +358,6 @@
 
 
     alias -g dnull="/dev/null"
-    alias :q="echo 'You are not in Vim, you stupid...'"
-    alias RM="rm -rdvf"
-    alias RMS="sudo rm -rdvf"
-    alias df="df -h"
-    alias du="du -h"
-    alias ezsh="echo 'Reloading ZSH...' && exec zsh"
-    alias free="free -h"
-    alias hc="herbstclient"
-    alias history="history -i"
-    alias hsrc="$EDITOR ~/.config/herbstluftwm/autostart"
-    alias i3rc="$EDITOR ~/.config/i3/config"
-    alias k="kak"
-    alias krc="$EDITOR ~/.config/kak/kakrc"
-    alias llr="ls -lR"
-    alias lr="ls -R"
-    alias mergepdf="gs -dBATCH -dNOPAUSE -q -sDEVICE=pdfwrite -sOutputFile=temp.pdf"
-    alias meteo="curl http://wttr.in/$CITY"
-    alias meteoo="curl http://v2.wttr.in/$CITY"
-    alias miec="mix ecto.create"
-    alias miem="mix ecto.migrate"
-    alias miex="iex -S mix"
-    alias mips="mix phx.server"
-    alias mpnv="mpv --no-video"
-    alias mutt="neomutt"
-    alias mvv="mv -v"
-    alias nrs="sudo nixos-rebuild switch"
-    alias pki="sudo pkg install"
-    alias pks="pkg search"
-    alias powertop="sudo powertop"
-    alias spro="ssh -D 1080 -q -C -N"
-    alias sshc="$EDITOR ~/.ssh/config"
-    alias svup="ls /var/service/"
-    alias v="vim"
-    alias vg="vagrant"
-    alias vgd="vagrant destroy"
-    alias vgdd="yes | vagrant destroy"
-    alias vgp="vagrant provision"
-    alias vgs="vagrant ssh"
-    alias vgup="vagrant up"
-    alias vgupp="vagrant up --provision"
-    alias vrc="$EDITOR ~/.vim/vimrc"
-    alias xbi="sudo xbps-install -S"
-    alias xbq="xbps-query -Rs"
-    alias xbqr="xbps-query -R"
-    alias xbr="sudo xbps-remove -R"
-    alias xbsu="sudo xbps-install -Su"
-    alias xinit="exec xinit"
-    alias zshrc="$EDITOR ~/.zshrc && exec zsh"
-    alias ztf="zathura --mode fullscreen"
 
     eval $(thefuck --alias)
     if [[ "$(ssh-add -l)" = "The agent has no identities." ]]; then ssh-add; fi 
@@ -378,7 +368,8 @@
     }
 
   '';
-  programs.zsh.ohMyZsh.plugins = [ "colored-man-pages" ];
+  programs.zsh.ohMyZsh.plugins =
+    [ "colored-man-pages" "git" "sudo" "fancy-ctl-z" ];
 
   programs.zsh.promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
 
