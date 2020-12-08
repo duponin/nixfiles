@@ -24,7 +24,7 @@
     interfaces.ens18 = {
       ipv4 = {
         addresses = [{
-          address = "10.0.20.10";
+          address = "10.0.30.10";
           prefixLength = 24;
         }];
         routes = [{
