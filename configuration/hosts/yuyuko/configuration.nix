@@ -21,11 +21,6 @@
     hostName = "yuyuko";
     useDHCP = false;
     nameservers = [ "185.233.100.100" "185.233.100.101" "1.1.1.1" ];
-    nat = {
-      enable = true;
-      externalInterfaces = "ens18";
-      internalInterfaces = "wg0";
-    };
     interfaces.ens18 = {
       ipv4 = {
         addresses = [{
@@ -43,14 +38,8 @@
       enable = true;
       interfaces = {
         wg0 = {
-          ips = [ "10.0.40.1/24" ];
+          ips = [ "10.0.30.129/24" ];
           listenPort = 51820;
-          postSetup = ''
-            ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.0.40.0/24 -o ens18 -j MASQUERADE
-          '';
-          postShutdown = ''
-            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.40.0/24 -o ens18 -j MASQUERADE
-          '';
           privateKeyFile = "/private/wireguard/private_key";
           peers = [{ # duponin@rilakkuma
             publicKey = "p6V/5VlYNi6jhii8gZD+kMrhqOEOErQJ+gob0iE93nk=";
