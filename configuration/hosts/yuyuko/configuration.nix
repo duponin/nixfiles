@@ -38,7 +38,7 @@
       enable = true;
       interfaces = {
         wg0 = {
-          ips = [ "10.0.30.129/25" ];
+          ips = [ "10.0.30.129/24" ];
           listenPort = 51820;
           privateKeyFile = "/private/wireguard/private_key";
           peers = [{ # duponin@rilakkuma
