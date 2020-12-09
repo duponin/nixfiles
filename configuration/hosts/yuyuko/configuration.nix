@@ -21,6 +21,11 @@
     hostName = "yuyuko";
     useDHCP = false;
     nameservers = [ "185.233.100.100" "185.233.100.101" "1.1.1.1" ];
+    nat = {
+      enable = true;
+      externalInterfaces = "ens18";
+      internalInterfaces = [ "wg0" ];
+    };
     interfaces.ens18 = {
       ipv4 = {
         addresses = [{
@@ -38,7 +43,7 @@
       enable = true;
       interfaces = {
         wg0 = {
-          ips = [ "10.0.30.129/24" ];
+          ips = [ "10.0.40.1/24" ];
           listenPort = 51820;
           privateKeyFile = "/private/wireguard/private_key";
           peers = [{ # duponin@rilakkuma
