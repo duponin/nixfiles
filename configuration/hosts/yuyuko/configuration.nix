@@ -54,7 +54,7 @@
           '';
           peers = [{ # duponin@rilakkuma
             publicKey = "p6V/5VlYNi6jhii8gZD+kMrhqOEOErQJ+gob0iE93nk=";
-            allowedIPs = [ "0.0.0.0/0" ];
+            allowedIPs = [ "10.0.40.0/24" ];
           }];
         };
       };
