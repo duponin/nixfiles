@@ -52,7 +52,7 @@
           postShutdown = ''
             ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.40.0/24 -o ens18 -j MASQUERADE
           '';
-          peers = [{ # duponin@rilakkuma
+          peers = [{ # duponin@marisa
             publicKey = "p6V/5VlYNi6jhii8gZD+kMrhqOEOErQJ+gob0iE93nk=";
             allowedIPs = [ "10.0.40.0/24" ];
           }];
