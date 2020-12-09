@@ -17,9 +17,10 @@
    2. =parted /dev/sda -- part mkpart primary 0% 100%= (partition like you want)
    3. =mkfs.ext4 /dev/sda1=
    4. =mount /dev/sda1 /mnt=
-   5. =nixos-generate-config --root /mnt= and save =hardware-configuration.nix= in this repo
-   6. =nix-env -iA nixos.git=
-   7. =git clone https://git.locahlo.st/duponin/nixfiles /mnt/etc/nixfiles=
-   8. =nixos-install --no-root-passwd -I nixos-config=/mnt/etc/nixfiles/configuration/hosts/<HOSTNAME>/configuration.nix=
-   9. reboot
-   10. enjoy
+4. install system
+   1. =nixos-generate-config --root /mnt= and save =hardware-configuration.nix= in this repo
+   2. =nix-env -iA nixos.git=
+   3. =git clone https://git.locahlo.st/duponin/nixfiles /mnt/etc/nixfiles=
+   4. =nixos-install --no-root-passwd -I nixos-config=/mnt/etc/nixfiles/configuration/hosts/<HOSTNAME>/configuration.nix=
+5. reboot
+   1. enjoy
