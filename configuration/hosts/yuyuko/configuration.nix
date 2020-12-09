@@ -30,7 +30,7 @@
         routes = [{
           address = "0.0.0.0";
           prefixLength = 0;
-          via = "10.0.20.1";
+          via = "10.0.30.1";
         }];
       };
     };
