@@ -23,7 +23,7 @@
     nameservers = [ "185.233.100.100" "185.233.100.101" "1.1.1.1" ];
     nat = {
       enable = true;
-      externalInterfaces = "ens18";
+      externalInterface = "ens18";
       internalInterfaces = [ "wg0" ];
     };
     interfaces.ens18 = {
