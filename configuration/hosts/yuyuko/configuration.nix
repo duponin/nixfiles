@@ -46,6 +46,12 @@
           ips = [ "10.0.40.1/24" ];
           listenPort = 51820;
           privateKeyFile = "/private/wireguard/private_key";
+          postSetup = ''
+            ${pkgs.iptables}/bin/iptables -t nat -A POSTROUTING -s 10.0.40.0/24 -o ens18 -j MASQUERADE
+          '';
+          postShutdown = ''
+            ${pkgs.iptables}/bin/iptables -t nat -D POSTROUTING -s 10.0.40.0/24 -o ens18 -j MASQUERADE
+          '';
           peers = [{ # duponin@rilakkuma
             publicKey = "p6V/5VlYNi6jhii8gZD+kMrhqOEOErQJ+gob0iE93nk=";
             allowedIPs = [ "0.0.0.0/0" ];
