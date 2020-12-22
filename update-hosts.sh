@@ -20,6 +20,7 @@ echo_and_ssh () {
 
 (
     cd configuration/hosts || exit
+    #TODO use gnu/parrallel or something else to accelerate runtime once I'll have more hosts
     for host in * ; do 
         if [ "$host" = "$(hostname)" ]; then
             sleep 0.1
