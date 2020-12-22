@@ -111,6 +111,8 @@
     };
   };
 
+  security.hideProcessInformation = true;
+
   services = {
     emacs.enable = true;
     lorri.enable = true;
