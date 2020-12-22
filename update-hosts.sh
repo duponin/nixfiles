@@ -26,8 +26,8 @@ echo_and_ssh () {
         else
             (
                 echo -e ""
-                echo -e "${GREEN}#==================================================================${RESET}"
-                echo -e "# $host"
+                echo -e "${GREEN}#=================================================================="
+                echo -e "# $host ${RESET}"
                 echo -e "${ORANGE}#-------- git pull -------${RESET}"
 
                 echo_and_ssh "$host" "sudo git -C /etc/nixfiles/ config pull.ff only"
