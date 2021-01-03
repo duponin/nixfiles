@@ -56,6 +56,11 @@
             "proxy_pass_header Authorization;";
         };
       };
+      virtualHosts."kanboard.zefirchik.xyz" = {
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = { proxyPass = "http://10.0.50.20:80"; };
+      };
     };
   };
 
