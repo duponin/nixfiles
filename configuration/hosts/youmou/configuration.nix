@@ -66,7 +66,10 @@
 
   security.acme = {
     acceptTerms = true;
-    certs = { "graphs.dupon.in".email = "pwet+admin@dupon.in"; };
+    certs = {
+      "graphs.dupon.in".email = "pwet+admin@dupon.in";
+      "kanboard.zefirchik.xyz".email = "pwet+admin@dupon.in";
+    };
   };
 
   system.stateVersion = "20.09";
