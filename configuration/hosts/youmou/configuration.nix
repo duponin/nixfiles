@@ -61,6 +61,11 @@
         forceSSL = true;
         locations."/" = { proxyPass = "http://10.0.50.20:80"; };
       };
+      virtualHosts."matrix-test.melisse.org" = {
+        enableACME = true;
+        forceSSL = true;
+        locations."/" = { proxyPass = "10.0.50.10:8448"; };
+      };
     };
   };
 
@@ -69,6 +74,7 @@
     certs = {
       "graphs.dupon.in".email = "pwet+admin@dupon.in";
       "kanboard.zefirchik.xyz".email = "pwet+admin@dupon.in";
+      "matrix-test.melisse.org".email = "pwet+admin@dupon.in";
     };
   };
 
