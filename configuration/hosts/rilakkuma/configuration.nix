@@ -42,6 +42,14 @@
     };
   };
 
+  docker-containers = {
+    dirsrv = {
+      image = "389ds/dirsrv";
+      ports = [ "636:3636" ];
+      volumes = [ "/home/duponin/test/389:/data" ];
+    };
+  };
+
   networking.hostName = "rilakkuma"; # Define your hostname.
 
   virtualisation.docker.enable = true;
@@ -93,4 +101,3 @@
   system.stateVersion = "20.03"; # Did you read the comment?
 
 }
-
