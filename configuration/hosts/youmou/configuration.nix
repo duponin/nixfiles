@@ -61,10 +61,34 @@
         forceSSL = true;
         locations."/" = { proxyPass = "http://10.0.50.20:80"; };
       };
+      # Matrix test
       virtualHosts."matrix-test.melisse.org" = {
         enableACME = true;
         forceSSL = true;
-        locations."/" = { proxyPass = "10.0.50.10:8448"; };
+        locations."= /.well-known/matrix/server".extraConfig =
+          let
+            server = { "m.server" = "matrix-test.melisse.org:443"; };
+          in ''
+            add_header Content-Type application/json;
+            return 200 '${builtins.toJSON server}';
+          '';
+        locations."= /.well-known/matrix/client".extraConfig =
+          let
+            client = {
+              "m.homeserver" = { "base_url" = "https://matrix-test.melisse.org"; };
+              # "m.identity_server" = { "base_url" = "https://vector.im"; };
+            };
+          in ''
+            add_header Content-Type application/json;
+            add_header Access-Control-Allow-Origin *;
+            return 200 '${builtins.toJSON client}';
+          '';
+          locations."/".extraConfig = ''
+            return 404;
+          '';
+          locations."/_matrix" = {
+            proxyPass = "http://10.0.50.10:8448";
+          };
       };
     };
   };
