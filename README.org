@@ -14,7 +14,7 @@
    3. =sudo -i=
 3. setup disk
    1. =parted /dev/sda -- mklabel msdos=
-   2. =parted /dev/sda -- part mkpart primary 0% 100%= (partition like you want)
+   2. =parted /dev/sda -- mkpart primary 0% 100%= (partition like you want)
    3. =mkfs.ext4 /dev/sda1=
    4. =mount /dev/sda1 /mnt=
 4. install system
