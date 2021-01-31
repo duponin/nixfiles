@@ -1,4 +1,6 @@
-{ config, pkgs, lib, ... }: {
+{ config, pkgs, lib, ... }:
+let czkawka = pkgs.callPackage ./czkawka.nix { };
+in {
   imports = [ ../../../modules ];
 
   # Mount /tmp on tmpfs at boot
@@ -151,6 +153,7 @@
       ];
       hashedPassword =
         "$6$rounds=1000000$3P.QolTKfoKz$UOXByJQfwNJJ5M7ChL.A4hlnuNiBX01/j/dHBLOy6vuN6OxJJ/fSF2x0vgpD1ZnvsKTse6V6N.z3b9.4h9WOQ0";
+      packages = [ czkawka ];
     };
   };
 
@@ -198,6 +201,7 @@
     jq
     mkpasswd
     mtr
+    mupdf
     multimarkdown
     ncdu
     nixfmt
@@ -243,6 +247,7 @@
     chromium
     darktable
     digikam
+    element-desktop
     feh
     firefox
     gimp
@@ -256,6 +261,7 @@
     networkmanager
     networkmanager-openvpn
     networkmanagerapplet
+    ntfs3g
     obs-studio
     olive-editor
     openvpn

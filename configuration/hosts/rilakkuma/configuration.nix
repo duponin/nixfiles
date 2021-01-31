@@ -42,15 +42,9 @@
     };
   };
 
-  docker-containers = {
-    dirsrv = {
-      image = "389ds/dirsrv";
-      ports = [ "636:3636" ];
-      volumes = [ "/home/duponin/test/389:/data" ];
-    };
-  };
+  networking.hostName = "rilakkuma"; # Define your hostname
 
-  networking.hostName = "rilakkuma"; # Define your hostname.
+  networking.bridges.br-vm-nat.interfaces = [ ];
 
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;
