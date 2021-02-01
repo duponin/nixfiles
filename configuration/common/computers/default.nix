@@ -63,6 +63,7 @@ in {
         nrdb = "sudo nixos-rebuild dry-build";
         nrs = "sudo nixos-rebuild switch";
         nrt = "sudo nixos-rebuild test";
+        ns = "nix-shell";
         powertop = "sudo powertop";
         spro = "ssh -D 1080 -q -C -N";
       };
