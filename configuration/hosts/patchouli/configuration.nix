@@ -50,6 +50,7 @@
           targets = [
             "freespeechextremist.com"
             "neckbeard.xyz"
+            "pl.eragon.re"
             "pl.jeder.pl"
             "pleroma.amoonrabbit.reisen"
             "shitposter.club"
