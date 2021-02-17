@@ -53,7 +53,6 @@
             "pl.eragon.re"
             "pl.jeder.pl"
             "pleroma.amoonrabbit.reisen"
-            "shitposter.club"
             "udongein.xyz"
             "zefirchik.xyz"
           ];
