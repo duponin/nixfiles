@@ -230,8 +230,10 @@ in {
     wally-cli
 
     # Font related pkgs
+    fira
     fira-code
     fira-code-symbols
+    fira-mono
     font-awesome
     hasklig
     iosevka
