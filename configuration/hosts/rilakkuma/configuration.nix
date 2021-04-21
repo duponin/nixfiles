@@ -43,8 +43,10 @@
   };
 
   networking.hostName = "rilakkuma"; # Define your hostname
-
-  networking.bridges.br-vm-nat.interfaces = [ ];
+  networking.interfaces = {
+    enp0s31f6.useDHCP = true;
+    wlp0s20f3.useDHCP = true;
+  };
 
   virtualisation.docker.enable = true;
   virtualisation.libvirtd.enable = true;

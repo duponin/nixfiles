@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 let czkawka = pkgs.callPackage ./czkawka.nix { };
 in {
-  imports = [ ../../../modules ];
+  imports = [ ../../modules ];
 
   # Mount /tmp on tmpfs at boot
   boot.tmpOnTmpfs = true;
@@ -22,10 +22,6 @@ in {
         8000 # Webserver to easily share files
       ];
       # allowedUDPPorts = [ ... ];
-    };
-    interfaces = {
-      enp0s31f6.useDHCP = true;
-      wlp0s20f3.useDHCP = true;
     };
     networkmanager = {
       enable = true;
@@ -156,11 +152,6 @@ in {
         "$6$rounds=1000000$3P.QolTKfoKz$UOXByJQfwNJJ5M7ChL.A4hlnuNiBX01/j/dHBLOy6vuN6OxJJ/fSF2x0vgpD1ZnvsKTse6V6N.z3b9.4h9WOQ0";
       packages = [ czkawka ];
     };
-  };
-
-  virtualisation = {
-    docker.enable = true;
-    libvirtd.enable = true;
   };
 
   # ----------------------------------------------------------------------------
