@@ -6,7 +6,7 @@
 
 {
   imports = [ # Include the results of the hardware scan.
-    ../../common/computers
+    ../../common
     ./hardware-configuration.nix
   ];
 

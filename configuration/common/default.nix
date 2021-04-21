@@ -213,11 +213,9 @@ in {
     rlwrap
     shellcheck
     tcpdump
-    terraform
     thefuck
     tldr
     tmate
-    vagrant
     vim
     wget
     whois
