@@ -1,7 +1,12 @@
 { config, pkgs, lib, ... }:
-let czkawka = pkgs.callPackage ./czkawka.nix { };
+let
+  home-manager = builtins.fetchGit {
+    url = "https://github.com/rycee/home-manager.git";
+    rev = "2aa20ae969f2597c4df10a094440a66e9d7f8c86";
+    ref = "release-20.09";
+  };
 in {
-  imports = [ ../../modules ];
+  imports = [ ../../modules (import "${home-manager}/nixos") ];
 
   # Mount /tmp on tmpfs at boot
   boot.tmpOnTmpfs = true;
@@ -139,18 +144,25 @@ in {
   users = {
     defaultUserShell = pkgs.zsh;
     mutableUsers = false;
-    users.duponin = {
-      isNormalUser = true;
-      extraGroups = [
-        "adbusers" # ADB
-        "docker" # Docker
-        "libvirt" # Virtualisation
-        "networkmanager" # Network
-        "wheel" # Sudo
-      ];
-      hashedPassword =
-        "$6$rounds=1000000$3P.QolTKfoKz$UOXByJQfwNJJ5M7ChL.A4hlnuNiBX01/j/dHBLOy6vuN6OxJJ/fSF2x0vgpD1ZnvsKTse6V6N.z3b9.4h9WOQ0";
-      packages = [ czkawka ];
+  };
+  users.users.duponin = {
+    isNormalUser = true;
+    extraGroups = [
+      "adbusers" # ADB
+      "docker" # Docker
+      "libvirt" # Virtualisation
+      "networkmanager" # Network
+      "wheel" # Sudo
+    ];
+    hashedPassword =
+      "$6$rounds=1000000$3P.QolTKfoKz$UOXByJQfwNJJ5M7ChL.A4hlnuNiBX01/j/dHBLOy6vuN6OxJJ/fSF2x0vgpD1ZnvsKTse6V6N.z3b9.4h9WOQ0";
+  };
+  home-manager.users.duponin = {
+    programs.git = {
+      enable = true;
+      package = pkgs.gitFull;
+      userName = "Antonin Dupont";
+      userEmail = "duponin@locahlo.st";
     };
   };
 
@@ -179,22 +191,21 @@ in {
     # Various tools
     bat
     cmake
+    curl
     direnv
     dnsutils
     fd
     gcc
-    git
     gitAndTools.delta
     gitAndTools.git-bug
     glow
     gnupg
-    home-manager
     htop
     jq
     mkpasswd
     mtr
-    mupdf
     multimarkdown
+    mupdf
     ncdu
     nixfmt
     nmap
@@ -214,55 +225,10 @@ in {
     xsel
     yadm
 
-    # To flash Keyboard
-    libusb
-    wally-cli
-
-    # Font related pkgs
-    fira
-    fira-code
-    fira-code-symbols
-    fira-mono
-    font-awesome
-    hasklig
-    iosevka
-    nerdfonts
-
     # Shell related pkgs
     nix-zsh-completions
     zsh-completions
     zsh-syntax-highlighting
     zsh-you-should-use
-
-    # Desktop
-    barrier
-    chromium
-    darktable
-    digikam
-    element-desktop
-    feh
-    firefox
-    gimp
-    inkscape
-    kdeApplications.kmail-account-wizard
-    kdeApplications.kmailtransport
-    kdeApplications.spectacle
-    keepassxc
-    kmail
-    mpv
-    networkmanager
-    networkmanager-openvpn
-    networkmanagerapplet
-    ntfs3g
-    obs-studio
-    olive-editor
-    openvpn
-    plasma-integration
-    scrcpy
-    simplescreenrecorder
-    tdesktop # Telegram
-    thunderbird
-    transmission-remote-gtk
-    virt-manager
   ];
 }
