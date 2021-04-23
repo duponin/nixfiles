@@ -163,6 +163,8 @@ in {
       package = pkgs.gitFull;
       userName = "Antonin Dupont";
       userEmail = "duponin@locahlo.st";
+      delta.enable = true;
+      extraConfig = { pull = { ff = "only"; }; };
     };
   };
 
@@ -218,6 +220,7 @@ in {
     thefuck
     tldr
     tmate
+    tmux
     vim
     wget
     whois

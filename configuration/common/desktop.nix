@@ -19,6 +19,7 @@ in {
 
     # Desktop
     barrier
+    bitwarden
     chromium
     czkawka
     darktable
