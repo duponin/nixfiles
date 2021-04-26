@@ -212,6 +212,7 @@ in {
     nixfmt
     nmap
     pandoc
+    python3
     ripgrep
     ripgrep-all
     rlwrap
