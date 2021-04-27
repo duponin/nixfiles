@@ -4,7 +4,6 @@
   imports = [ # #
     ./hardware-configuration.nix
     ../../common
-    ../../common/desktop.nix
   ];
 
   boot.loader.efi.canTouchEfiVariables = true;

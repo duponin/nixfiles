@@ -1,12 +1,15 @@
 { config, pkgs, lib, ... }:
 let
+  czkawka = pkgs.callPackage ./czkawka.nix { };
   home-manager = builtins.fetchGit {
     url = "https://github.com/rycee/home-manager.git";
     rev = "2aa20ae969f2597c4df10a094440a66e9d7f8c86";
     ref = "release-20.09";
   };
+  unstableTarball = fetchTarball
+    "https://codeload.github.com/nixos/nixpkgs/tar.gz/nixos-unstable";
 in {
-  imports = [ ../../modules (import "${home-manager}/nixos") ];
+  imports = [ (import "${home-manager}/nixos") ];
 
   # Mount /tmp on tmpfs at boot
   boot.tmpOnTmpfs = true;
@@ -37,12 +40,15 @@ in {
 
   programs = {
     adb.enable = true;
-    gnupg.agent = {
-      enable = true;
-      # enableSSHSupport = true;
-      pinentryFlavor = "qt";
+    gnupg = {
+      package = pkgs.unstable.gnupg;
+      agent = {
+        enable = true;
+        enableSSHSupport = true;
+        pinentryFlavor = "qt";
+      };
     };
-    ssh.startAgent = true;
+    ssh.startAgent = false;
     zsh = {
       enable = true;
       promptInit = ""; # Clear this to avoid a conflict with oh-my-zsh
@@ -94,7 +100,7 @@ in {
         export EDITOR="emacsclient"
         export ERL_AFLAGS="-kernel shell_history enabled"
         export GIT_PAGER="delta --theme 'Monokai Extended Bright'"
-        #export GPG_TTY=$(tty)
+        export GPG_TTY=$(tty)
         export MANPAGER=less
         export OPENER=$EDITOR
         export PAGER=bat
@@ -102,9 +108,11 @@ in {
         export PATH=$PATH:/home/$USER/.cargo/bin
         export PATH=$PATH:/home/$USER/.local/bin/
         export PATH=$PATH:/home/$USER/.mix/escripts/
+        export SSH_AUTH_SOCK="/run/user/$UID/gnupg/S.gpg-agent.ssh"
 
         eval $(thefuck --alias)
-        if [[ "$(ssh-add -l)" = "The agent has no identities." ]]; then ssh-add; fi
+        # if [[ "$(ssh-add -l)" = "The agent has no identities." ]]; then ssh-add; fi
+        gpg-connect-agent /bye
 
         mkcd ()
         {
@@ -121,7 +129,8 @@ in {
     emacs.enable = true;
     lorri.enable = true;
     printing.enable = true;
-    yubikey.enable = true;
+    pcscd.enable = true;
+    udev.packages = [ pkgs.libu2f-host pkgs.yubikey-personalization ];
     xserver = {
       enable = true;
       layout = "fr";
@@ -189,6 +198,12 @@ in {
 
   # ----------------------------------------------------------------------------
   # Packages
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball { config = config.nixpkgs.config; };
+    };
+  };
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # Various tools
     bat
@@ -201,7 +216,6 @@ in {
     gitAndTools.delta
     gitAndTools.git-bug
     glow
-    gnupg
     htop
     jq
     mkpasswd
@@ -212,6 +226,7 @@ in {
     nixfmt
     nmap
     pandoc
+    # pinentry-qt
     python3
     ripgrep
     ripgrep-all
@@ -234,5 +249,53 @@ in {
     zsh-completions
     zsh-syntax-highlighting
     zsh-you-should-use
+
+    # To flash Keyboard
+    libusb
+    wally-cli
+
+    # Font related pkgs
+    fira
+    fira-code
+    fira-code-symbols
+    # fira-mono # Causing collision with Fira
+    font-awesome
+    hasklig
+    iosevka
+    nerdfonts
+
+    # Desktop
+    barrier
+    bitwarden
+    chromium
+    czkawka
+    darktable
+    digikam
+    element-desktop
+    feh
+    firefox
+    gimp
+    inkscape
+    kdeApplications.kmail-account-wizard
+    kdeApplications.kmailtransport
+    kdeApplications.spectacle
+    keepassxc
+    kmail
+    mpv
+    networkmanager
+    networkmanager-openvpn
+    networkmanagerapplet
+    ntfs3g
+    obs-studio
+    olive-editor
+    openvpn
+    plasma-integration
+    scrcpy
+    simplescreenrecorder
+    tdesktop # Telegram
+    thunderbird
+    transmission-remote-gtk
+    virt-manager
+    vivaldi
   ];
 }
