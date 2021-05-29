@@ -38,6 +38,9 @@ in {
     useDHCP = false;
   };
 
+  virtualisation.libvirtd.enable = true;
+  virtualisation.docker.enable = true;
+
   programs = {
     adb.enable = true;
     gnupg = {
@@ -128,6 +131,15 @@ in {
   services = {
     emacs.enable = true;
     lorri.enable = true;
+    openssh.enable = true;
+    postgresql = {
+      enable = true;
+      authentication = pkgs.lib.mkOverride 10 ''
+        local all all trust
+        host all all ::1/128 trust
+        host all all 127.0.0.1/32 trust
+      '';
+    };
     printing.enable = true;
     pcscd.enable = true;
     udev.packages = [ pkgs.libu2f-host pkgs.yubikey-personalization ];
@@ -159,7 +171,7 @@ in {
     extraGroups = [
       "adbusers" # ADB
       "docker" # Docker
-      "libvirt" # Virtualisation
+      "libvirtd" # Virtualisation
       "networkmanager" # Network
       "wheel" # Sudo
     ];
@@ -174,6 +186,7 @@ in {
       userEmail = "duponin@locahlo.st";
       delta.enable = true;
       extraConfig = { pull = { ff = "only"; }; };
+      # signing = true;
     };
   };
 
@@ -207,12 +220,11 @@ in {
   environment.systemPackages = with pkgs; [
     # Various tools
     bat
-    cmake
     curl
     direnv
     dnsutils
+    unstable.elixir
     fd
-    gcc
     gitAndTools.delta
     gitAndTools.git-bug
     glow
@@ -224,6 +236,7 @@ in {
     mupdf
     ncdu
     nixfmt
+    elmPackages.elm-format
     nmap
     pandoc
     # pinentry-qt
@@ -265,6 +278,7 @@ in {
     nerdfonts
 
     # Desktop
+    audacity
     barrier
     bitwarden
     chromium
@@ -288,6 +302,7 @@ in {
     ntfs3g
     obs-studio
     olive-editor
+    oneko
     openvpn
     plasma-integration
     scrcpy
@@ -296,6 +311,6 @@ in {
     thunderbird
     transmission-remote-gtk
     virt-manager
-    vivaldi
+    unstable.vivaldi
   ];
 }
