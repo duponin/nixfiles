@@ -1,6 +1,5 @@
 { config, pkgs, lib, ... }:
 let
-  czkawka = pkgs.callPackage ./czkawka.nix { };
   home-manager = builtins.fetchGit {
     url = "https://github.com/rycee/home-manager.git";
     rev = "2aa20ae969f2597c4df10a094440a66e9d7f8c86";
@@ -126,8 +125,6 @@ in {
     };
   };
 
-  security.hideProcessInformation = true;
-
   services = {
     emacs.enable = true;
     lorri.enable = true;
@@ -151,9 +148,9 @@ in {
       desktopManager.plasma5.enable = true; # KDE Plasma
       libinput = { # Click with touchpad is HERESY
         enable = true;
-        tapping = false;
-        clickMethod = "none";
-        disableWhileTyping = true;
+        touchpad.tapping = false;
+        touchpad.clickMethod = "none";
+        touchpad.disableWhileTyping = true;
       };
     };
   };
@@ -290,9 +287,9 @@ in {
     firefox
     gimp
     inkscape
-    kdeApplications.kmail-account-wizard
-    kdeApplications.kmailtransport
-    kdeApplications.spectacle
+    libsForQt5.kmail-account-wizard
+    libsForQt5.kmailtransport
+    libsForQt5.spectacle
     keepassxc
     kmail
     mpv
