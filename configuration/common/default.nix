@@ -164,7 +164,7 @@ in {
 
   users = {
     defaultUserShell = pkgs.zsh;
-    mutableUsers = false;
+    mutableUsers = true;
   };
   users.users.duponin = {
     isNormalUser = true;
@@ -175,8 +175,8 @@ in {
       "networkmanager" # Network
       "wheel" # Sudo
     ];
-    hashedPassword =
-      "$6$rounds=1000000$3P.QolTKfoKz$UOXByJQfwNJJ5M7ChL.A4hlnuNiBX01/j/dHBLOy6vuN6OxJJ/fSF2x0vgpD1ZnvsKTse6V6N.z3b9.4h9WOQ0";
+    #hashedPassword =
+    #  "$6$rounds=1000000$3P.QolTKfoKz$UOXByJQfwNJJ5M7ChL.A4hlnuNiBX01/j/dHBLOy6vuN6OxJJ/fSF2x0vgpD1ZnvsKTse6V6N.z3b9.4h9WOQ0";
   };
   home-manager.users.duponin = {
     programs.git = {
