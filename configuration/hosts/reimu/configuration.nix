@@ -3,14 +3,8 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
-let
 
-  home-manager = builtins.fetchGit {
-    url = "https://github.com/rycee/home-manager.git";
-    # rev = "0000000000000000000000000000000000000000";
-    ref = "release-21.05";
-  };
-in {
+{
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -18,7 +12,7 @@ in {
       ./gpg-ssh.nix
       ./android.nix
       ./unfree.nix
-      (import "${home-manager}/nixos")
+      ./flakes.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -64,15 +58,19 @@ in {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
   };
-  home-manager.users.duponin = {
-    programs.git = {
-      enable = true;
-      package = pkgs.gitFull;
-      userName = "Antonin Dupont";
-      userEmail = "duponin@locahlo.st";
-      delta.enable = true;
-      extraConfig = { pull = { ff = "only"; }; };
-      # signing = true;
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.duponin = {
+      programs.git = {
+        enable = true;
+        package = pkgs.gitFull;
+        userName = "Antonin Dupont";
+        userEmail = "duponin@locahlo.st";
+        delta.enable = true;
+        extraConfig = { pull = { ff = "only"; }; };
+        # signing = true;
+      };
     };
   };
 
