@@ -14,6 +14,11 @@
                     home-manager.nixosModule
                   ];
       };
+      sarah = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/sarah/configuration.nix
+                  ];
+      };
     };
   };
 }
