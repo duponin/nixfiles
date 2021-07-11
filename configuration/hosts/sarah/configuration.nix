@@ -2,8 +2,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+      ../../common/flakes.nix
     ];
 
   boot.loader.grub.enable = true;

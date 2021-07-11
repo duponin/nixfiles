@@ -12,7 +12,7 @@
       ./gpg-ssh.nix
       ./android.nix
       ./unfree.nix
-      ./flakes.nix
+      ../../common/flakes.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
