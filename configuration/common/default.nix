@@ -38,7 +38,10 @@ in {
   };
 
   virtualisation.libvirtd.enable = true;
-  virtualisation.docker.enable = true;
+  virtualisation.podman = {
+    enable = true;
+    dockerCompat = true;
+  };
 
   programs = {
     adb.enable = true;
@@ -275,6 +278,7 @@ in {
     nerdfonts
 
     # Desktop
+    alacritty
     audacity
     barrier
     bitwarden
