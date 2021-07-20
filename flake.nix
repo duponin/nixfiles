@@ -10,14 +10,18 @@
     nixosConfigurations = {
       reimu = nixos.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./configuration/hosts/reimu/configuration.nix
-                    home-manager.nixosModule
-                  ];
+        modules = [
+          ./configuration/hosts/reimu/configuration.nix
+          home-manager.nixosModule
+        ];
       };
       sarah = nixos.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./configuration/hosts/sarah/configuration.nix
-                  ];
+        modules = [ ./configuration/hosts/sarah/configuration.nix ];
+      };
+      katyusha = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/katyusha/configuration.nix ];
       };
     };
   };

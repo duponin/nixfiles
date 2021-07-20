@@ -39,6 +39,13 @@
   #   };
   # };
 
+  nix = {
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+   };
+
   networking.hostName = "katyusha";
   networking.interfaces.enp6s0.useDHCP = true;
   networking.useDHCP = false;
