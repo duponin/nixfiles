@@ -10,8 +10,10 @@
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
   boot.loader.grub.device = "/dev/sde";
+  boot.supportedFilesystems = [ "zfs" ];
 
-  networking.hostName = "sarah"; # Define your hostname.
+  networking.hostId = "c0fe4242";
+  networking.hostName = "sarah";
 
   time.timeZone = "Europe/Paris";
 
@@ -42,6 +44,8 @@
   };
 
   services.openssh.enable = true;
+
+  environment.systemPackages = with pkgs; [ git vim zfs ];
 
   system.stateVersion = "21.05";
 }
