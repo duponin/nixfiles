@@ -18,6 +18,18 @@
   networking.useDHCP = false;
   networking.interfaces.eno1.useDHCP = true;
   networking.interfaces.enp10s0.useDHCP = true;
+  networking.interfaces.eno1 = {
+    ipv6 = {
+      addresses = [{
+        address = "2a01:e0a:18c:37b0::42";
+        prefixLength = 64;
+      }];
+    };
+  };
+  networking.defaultGateway6 = {
+    address = "2a0c:e300:12::190";
+    interface = "eno1";
+  };
 
   security.sudo.wheelNeedsPassword = false;
 
