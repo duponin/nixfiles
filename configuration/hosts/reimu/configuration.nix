@@ -12,6 +12,7 @@
       ./gpg-ssh.nix
       ./android.nix
       ./unfree.nix
+      ./game-dev.nix
       ../../common/flakes.nix
     ];
 
