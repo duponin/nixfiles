@@ -44,6 +44,7 @@
   };
 
   services.openssh.enable = true;
+  services.zfs.autoSnapshot.enable = true;
 
   environment.systemPackages = with pkgs; [ git vim zfs ];
 
