@@ -13,6 +13,7 @@
       ./android.nix
       ./unfree.nix
       ./game-dev.nix
+      ./audiovisual.nix
       ../../common/flakes.nix
     ];
 
