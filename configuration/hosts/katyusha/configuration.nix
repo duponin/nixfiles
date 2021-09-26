@@ -1,8 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, duponin, pkgs, lib, ... }:
 
 {
   imports = [ # #
     ./hardware-configuration.nix
+    ../../modules
   ];
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -45,6 +46,8 @@
     enable = true;
     dockerCompat = true;
   };
+
+  duponin.doom-emacs.enable = true;
 
   programs = {
     adb.enable = true;
@@ -132,8 +135,6 @@
   };
 
   services = {
-    emacs.enable = true;
-    lorri.enable = true;
     openssh.enable = true;
     postgresql = {
       enable = true;
@@ -218,11 +219,6 @@
     curl
     direnv
     dnsutils
-    elixir
-    fd
-    gitAndTools.delta
-    gitAndTools.git-bug
-    glow
     htop
     jq
     mkpasswd
@@ -231,13 +227,9 @@
     mupdf
     ncdu
     nixfmt
-    elmPackages.elm-format
     nmap
     pandoc
     # pinentry-qt
-    python3
-    ripgrep
-    ripgrep-all
     rlwrap
     shellcheck
     tcpdump
