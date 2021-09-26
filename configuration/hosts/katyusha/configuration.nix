@@ -9,13 +9,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;
 
-  nix = {
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-  };
-
   networking.hostName = "katyusha";
   networking.interfaces.enp6s0.useDHCP = true;
 
@@ -51,7 +44,9 @@
     android.enable = true;
     audiovisual.enable = true;
     doom-emacs.enable = true;
+    flakes.enable = true;
     shell.enable = true;
+    zsa.enable = true; # Ergodox etc.
   };
 
   programs = {
@@ -95,8 +90,9 @@
 
   users = {
     defaultUserShell = pkgs.zsh;
-    mutableUsers = true;
+    mutableUsers = false;
   };
+  users.users.root.hashedPassword = "";
   users.users.duponin = {
     isNormalUser = true;
     extraGroups = [
@@ -105,6 +101,8 @@
       "networkmanager" # Network
       "wheel" # Sudo
     ];
+    hashedPassword =
+      "$6$rounds=1000000$3P.QolTKfoKz$UOXByJQfwNJJ5M7ChL.A4hlnuNiBX01/j/dHBLOy6vuN6OxJJ/fSF2x0vgpD1ZnvsKTse6V6N.z3b9.4h9WOQ0";
   };
   # home-manager = {
   #   useGlobalPkgs = true;
@@ -121,25 +119,6 @@
   #     };
   #   };
   # };
-
-  # ----------------------------------------------------------------------------
-  # Wally (QMK flashing tool)
-  services.udev.extraRules = ''
-    # Teensy rules for the Ergodox EZ
-    ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789B]?", ENV{ID_MM_DEVICE_IGNORE}="1"
-    ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789A]?", ENV{MTP_NO_PROBE}="1"
-    SUBSYSTEMS=="usb", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789ABCD]?", MODE:="0666"
-    KERNEL=="ttyACM*", ATTRS{idVendor}=="16c0", ATTRS{idProduct}=="04[789B]?", MODE:="0666"
-
-    # Rule for all ZSA keyboards
-    SUBSYSTEM=="usb", ATTR{idVendor}=="3297", GROUP="plugdev"
-    # Rule for the Moonlander
-    SUBSYSTEM=="usb", ATTR{idVendor}=="3297", ATTR{idProduct}=="1969", GROUP="plugdev"
-    # Rule for the Ergodox EZ
-    SUBSYSTEM=="usb", ATTR{idVendor}=="feed", ATTR{idProduct}=="1307", GROUP="plugdev"
-    # Rule for the Planck EZ
-    SUBSYSTEM=="usb", ATTR{idVendor}=="feed", ATTR{idProduct}=="6060", GROUP="plugdev"
-  '';
 
   # ----------------------------------------------------------------------------
   # Packages
@@ -174,10 +153,6 @@
     xclip
     xsel
     yadm
-
-    # To flash Keyboard
-    libusb
-    wally-cli
 
     # Font related pkgs
     fira
