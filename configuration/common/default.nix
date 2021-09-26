@@ -1,15 +1,6 @@
 { config, pkgs, lib, ... }:
-let
-  home-manager = builtins.fetchGit {
-    url = "https://github.com/rycee/home-manager.git";
-    rev = "2aa20ae969f2597c4df10a094440a66e9d7f8c86";
-    ref = "release-20.09";
-  };
-  unstableTarball = fetchTarball
-    "https://codeload.github.com/nixos/nixpkgs/tar.gz/nixos-unstable";
-in {
-  imports = [ (import "${home-manager}/nixos") ];
 
+{
   # Mount /tmp on tmpfs at boot
   boot.tmpOnTmpfs = true;
 
@@ -46,7 +37,7 @@ in {
   programs = {
     adb.enable = true;
     gnupg = {
-      package = pkgs.unstable.gnupg;
+      package = pkgs.gnupg;
       agent = {
         enable = true;
         enableSSHSupport = true;
@@ -178,15 +169,30 @@ in {
     #hashedPassword =
     #  "$6$rounds=1000000$3P.QolTKfoKz$UOXByJQfwNJJ5M7ChL.A4hlnuNiBX01/j/dHBLOy6vuN6OxJJ/fSF2x0vgpD1ZnvsKTse6V6N.z3b9.4h9WOQ0";
   };
-  home-manager.users.duponin = {
-    programs.git = {
-      enable = true;
-      package = pkgs.gitFull;
-      userName = "Antonin Dupont";
-      userEmail = "duponin@locahlo.st";
-      delta.enable = true;
-      extraConfig = { pull = { ff = "only"; }; };
-      # signing = true;
+  # home-manager.users.duponin = {
+  #   programs.git = {
+  #     enable = true;
+  #     package = pkgs.gitFull;
+  #     userName = "Antonin Dupont";
+  #     userEmail = "duponin@locahlo.st";
+  #     delta.enable = true;
+  #     extraConfig = { pull = { ff = "only"; }; };
+  #     # signing = true;
+  #   };
+  # };
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.duponin = {
+      programs.git = {
+        enable = true;
+        package = pkgs.gitFull;
+        userName = "Antonin Dupont";
+        userEmail = "duponin@locahlo.st";
+        delta.enable = true;
+        extraConfig = { pull = { ff = "only"; }; };
+        # signing = true;
+      };
     };
   };
 
@@ -211,11 +217,6 @@ in {
 
   # ----------------------------------------------------------------------------
   # Packages
-  nixpkgs.config = {
-    packageOverrides = pkgs: {
-      unstable = import unstableTarball { config = config.nixpkgs.config; };
-    };
-  };
   nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     # Various tools
@@ -223,7 +224,7 @@ in {
     curl
     direnv
     dnsutils
-    unstable.elixir
+    elixir
     fd
     gitAndTools.delta
     gitAndTools.git-bug
@@ -312,6 +313,6 @@ in {
     thunderbird
     transmission-remote-gtk
     virt-manager
-    unstable.vivaldi
+    vivaldi
   ];
 }

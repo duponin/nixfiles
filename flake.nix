@@ -21,7 +21,10 @@
       };
       katyusha = nixos.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./configuration/hosts/katyusha/configuration.nix ];
+        modules = [
+          ./configuration/hosts/katyusha/configuration.nix
+          home-manager.nixosModule
+        ];
       };
     };
   };

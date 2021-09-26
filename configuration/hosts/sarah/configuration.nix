@@ -1,11 +1,10 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-      ../../common/flakes.nix
-    ];
+  imports = [ # #
+    ./hardware-configuration.nix
+    ../../common/flakes.nix
+  ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
@@ -35,7 +34,7 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  users.users.duponin= {
+  users.users.duponin = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [
