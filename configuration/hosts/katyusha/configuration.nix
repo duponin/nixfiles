@@ -3,41 +3,10 @@
 {
   imports = [ # #
     ./hardware-configuration.nix
-    # ../../common
   ];
 
   boot.loader.efi.canTouchEfiVariables = true;
-  # boot.loader.grub.useOSProber = true;
   boot.loader.systemd-boot.enable = true;
-
-  # boot.loader = {
-  #   efi = {
-  #     canTouchEfiVariables = true;
-  #     # assuming /boot is the mount point of the  EFI partition in NixOS (as the installation section recommends).
-  #     efiSysMountPoint = "/boot";
-  #   };
-  #   grub = {
-  #     # despite what the configuration.nix manpage seems to indicate,
-  #     # as of release 17.09, setting device to "nodev" will still call
-  #     # `grub-install` if efiSupport is true
-  #     # (the devices list is not used by the EFI grub install,
-  #     # but must be set to some value in order to pass an assert in grub.nix)
-  #     devices = [ "nodev" ];
-  #     efiSupport = true;
-  #     enable = true;
-  #     extraEntries = ''
-  #       menuentry "Winblows" {
-  #         insmod part_gpt
-  #         insmod fat
-  #         insmod search_fs_uuid
-  #         insmod chain
-  #         search --fs-uuid --set=root E68446C884469AC7
-  #         chainloader /Windows/Boot/EFI/bootmgfw.efi
-  #       }
-  #     '';
-  #     version = 2;
-  #   };
-  # };
 
   nix = {
     package = pkgs.nixUnstable;
@@ -61,16 +30,9 @@
   hardware.pulseaudio.enable = true;
 
   # English but date is YYYY/MM/DD
-  i18n.defaultLocale = "en_DK.UTF-8";
+  i18n.defaultLocale = "en_GB.UTF-8";
 
   networking = {
-    firewall = {
-      allowedTCPPorts = [
-        24800 # Barrier (Software KVM)
-        8000 # Webserver to easily share files
-      ];
-      # allowedUDPPorts = [ ... ];
-    };
     networkmanager = {
       enable = true;
       dns = "default";
@@ -185,18 +147,12 @@
     pcscd.enable = true;
     udev.packages = [ pkgs.libu2f-host pkgs.yubikey-personalization ];
     xserver = {
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
       videoDrivers = [ "nvidia" ];
       enable = true;
       layout = "fr";
       xkbVariant = "bepo";
-      displayManager.sddm.enable = true; # Plasma Display Manager
-      desktopManager.plasma5.enable = true; # KDE Plasma
-      libinput = { # Click with touchpad is HERESY
-        enable = true;
-        touchpad.tapping = false;
-        touchpad.clickMethod = "none";
-        touchpad.disableWhileTyping = true;
-      };
     };
   };
 
@@ -217,35 +173,22 @@
       "networkmanager" # Network
       "wheel" # Sudo
     ];
-    #hashedPassword =
-    #  "$6$rounds=1000000$3P.QolTKfoKz$UOXByJQfwNJJ5M7ChL.A4hlnuNiBX01/j/dHBLOy6vuN6OxJJ/fSF2x0vgpD1ZnvsKTse6V6N.z3b9.4h9WOQ0";
   };
-  # home-manager.users.duponin = {
-  #   programs.git = {
-  #     enable = true;
-  #     package = pkgs.gitFull;
-  #     userName = "Antonin Dupont";
-  #     userEmail = "duponin@locahlo.st";
-  #     delta.enable = true;
-  #     extraConfig = { pull = { ff = "only"; }; };
-  #     # signing = true;
+  # home-manager = {
+  #   useGlobalPkgs = true;
+  #   useUserPackages = true;
+  #   users.duponin = {
+  #     programs.git = {
+  #       enable = true;
+  #       package = pkgs.gitFull;
+  #       userName = "Antonin Dupont";
+  #       userEmail = "duponin@locahlo.st";
+  #       delta.enable = true;
+  #       extraConfig = { pull = { ff = "only"; }; };
+  #       # signing = true;
+  #     };
   #   };
   # };
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.duponin = {
-      programs.git = {
-        enable = true;
-        package = pkgs.gitFull;
-        userName = "Antonin Dupont";
-        userEmail = "duponin@locahlo.st";
-        delta.enable = true;
-        extraConfig = { pull = { ff = "only"; }; };
-        # signing = true;
-      };
-    };
-  };
 
   # ----------------------------------------------------------------------------
   # Wally (QMK flashing tool)
