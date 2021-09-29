@@ -8,14 +8,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./doom-emacs.nix
       ./gpg-ssh.nix
-      ./android.nix
       ./unfree.nix
       ./game-dev.nix
-      ./audiovisual.nix
       ./postgresql.nix
-      ../../common/flakes.nix
+      ../../modules
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -26,6 +23,16 @@
 
   # Set your time zone.
   time.timeZone = "Europe/Paris";
+
+  duponin = {
+    android.enable = true;
+    audiovisual.enable = true;
+    doom-emacs.enable = true;
+    flakes.enable = true;
+    home-manager.enable = true;
+    shell.enable = true;
+    # zsa.enable = true; # Ergodox etc.
+  };
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -60,21 +67,6 @@
   users.users.duponin = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
-  };
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.duponin = {
-      programs.git = {
-        enable = true;
-        package = pkgs.gitFull;
-        userName = "Antonin Dupont";
-        userEmail = "duponin@locahlo.st";
-        delta.enable = true;
-        extraConfig = { pull = { ff = "only"; }; };
-        # signing = true;
-      };
-    };
   };
 
   environment.systemPackages = with pkgs; [
