@@ -14,6 +14,7 @@
       ./unfree.nix
       ./game-dev.nix
       ./audiovisual.nix
+      ./postgresql.nix
       ../../common/flakes.nix
     ];
 
@@ -81,6 +82,7 @@
     wget
     curl
     gnomeExtensions.tilingnome
+    inkscape
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
