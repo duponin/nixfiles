@@ -42,6 +42,7 @@
 
   duponin = {
     android.enable = true;
+    apple.enable = true;
     audiovisual.enable = true;
     doom-emacs.enable = true;
     flakes.enable = true;

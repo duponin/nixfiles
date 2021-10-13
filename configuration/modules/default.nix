@@ -3,6 +3,7 @@
 {
   imports = [ # Find a method to auto-import modules
     ./android.nix
+    ./apple.nix
     ./audiovisual.nix
     ./doom-emacs.nix
     ./flakes.nix
