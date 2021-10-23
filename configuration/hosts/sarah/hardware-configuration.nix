@@ -20,4 +20,12 @@
 
   swapDevices = [ ];
 
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/dc2b3f7e-8a05-4555-90d1-aa0e4c1c1282";
+    fsType = "ext4";
+  };
+  fileSystems."/tank" = {
+    device = "tank";
+    fsType = "zfs";
+  };
 }
