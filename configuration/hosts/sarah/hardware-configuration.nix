@@ -19,4 +19,8 @@
     device = "tank";
     fsType = "zfs";
   };
+  fileSystems."/tank/duponin" = {
+    device = "tank/duponin";
+    fsType = "zfs";
+  };
 }
