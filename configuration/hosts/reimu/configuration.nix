@@ -66,8 +66,16 @@
 
   users.users.duponin = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "docker"
+      "libvirtd" # Virtualisation
+      "networkmanager"
+      "wheel"
+    ];
   };
+
+  virtualisation.libvirtd.enable = true;
+  virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
     vim
@@ -75,6 +83,15 @@
     curl
     gnomeExtensions.tilingnome
     inkscape
+    virt-manager
+
+    tdesktop
+
+    bat
+
+    kubectl
+    minikube
+    lens
   ];
 
   system.stateVersion = "21.05";
