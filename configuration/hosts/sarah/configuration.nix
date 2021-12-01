@@ -1,9 +1,9 @@
-{ config, pkgs, ... }:
+{ config, duponin, pkgs, ... }:
 
 {
   imports = [ # #
     ./hardware-configuration.nix
-    ../../common/flakes.nix
+    ../../modules
   ];
 
   boot.loader.grub.enable = true;
@@ -15,6 +15,12 @@
   networking.hostName = "sarah";
 
   time.timeZone = "Europe/Paris";
+
+  duponin = {
+    flakes.enable = true;
+    docker.enable = true;
+    shell.enable = true;
+  };
 
   networking.useDHCP = false;
   networking.interfaces.eno1.useDHCP = true;
