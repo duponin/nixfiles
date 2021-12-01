@@ -2,7 +2,7 @@
 with lib;
 let cfg = config.duponin.docker;
 in {
-  options.duponin.android.enable = mkEnableOption "Docker";
+  options.duponin.docker.enable = mkEnableOption "Docker";
 
   config = mkIf cfg.enable {
     virtualisation.docker.enable = true;
