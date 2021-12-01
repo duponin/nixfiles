@@ -156,6 +156,7 @@
     chromium
     czkawka
     darktable
+    dino
     element-desktop
     feh
     firefox
