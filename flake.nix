@@ -17,7 +17,10 @@
       };
       sarah = nixos.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [ ./configuration/hosts/sarah/configuration.nix ];
+        modules = [
+          ./configuration/hosts/sarah/configuration.nix
+          home-manager.nixosModule
+        ];
       };
       katyusha = nixos.lib.nixosSystem {
         system = "x86_64-linux";
