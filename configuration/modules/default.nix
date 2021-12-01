@@ -5,6 +5,7 @@
     ./android.nix
     ./apple.nix
     ./audiovisual.nix
+    ./docker.nix
     ./doom-emacs.nix
     ./flakes.nix
     ./home-manager.nix
