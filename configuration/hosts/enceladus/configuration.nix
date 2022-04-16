@@ -32,6 +32,7 @@
   networking.defaultGateway = {
     address = "185.233.102.190";
     interface = "ens18";
+  };
   networking.defaultGateway6 = {
     address = "2a0c:e300:12::190";
     interface = "ens18";
