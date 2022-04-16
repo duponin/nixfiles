@@ -29,6 +29,12 @@
           home-manager.nixosModule
         ];
       };
+      enceladus = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration/hosts/enceladus/configuration.nix
+        ];
+      };
     };
   };
 }
