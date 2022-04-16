@@ -1,12 +1,13 @@
 # https://nixos.org/manual/nixos/stable/index.html#module-services-sourcehut
 { pkgs, ... }:
 let
-  fqdn = "forge.localho.st";
+  fqdn = "forge.locahlo.st";
 in {
 
-  networking = {
-    firewall.allowedTCPPorts = [ 22 80 443 ];
-  };
+  networking.firewall.allowedTCPPorts = [ 22 80 443 ];
+
+  security.acme.email = "admin@locahlo.st";
+  security.acme.acceptTerms = true;
 
   services.sourcehut = {
     enable = true;
@@ -42,9 +43,9 @@ in {
     # Settings to setup what certificates are used for which endpoint.
     virtualHosts = {
       "${fqdn}".enableACME = true;
-      "meta.${fqdn}".useACMEHost = fqdn:
-      "man.${fqdn}".useACMEHost = fqdn:
-      "git.${fqdn}".useACMEHost = fqdn:
+      "meta.${fqdn}".useACMEHost = fqdn;
+      "man.${fqdn}".useACMEHost = fqdn;
+      "git.${fqdn}".useACMEHost = fqdn;
     };
   };
 }
