@@ -1,12 +1,13 @@
 {
   inputs = {
-    nixos.url = "github:NixOS/nixpkgs/nixos-21.05";
+    agenix.url = "github:ryantm/agenix";
+    nixos.url = "github:NixOS/nixpkgs/nixos-21.11";
     home-manager = {
-      url = "github:nix-community/home-manager/release-21.05";
+      url = "github:nix-community/home-manager/release-21.11";
       inputs.nixpkgs.follows = "nixos";
     };
   };
-  outputs = { self, nixos, home-manager }: {
+  outputs = { self, agenix, nixos, home-manager }: {
     nixosConfigurations = {
       reimu = nixos.lib.nixosSystem {
         system = "x86_64-linux";
@@ -33,6 +34,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration/hosts/enceladus/configuration.nix
+          agenix.nixosModule
         ];
       };
     };
