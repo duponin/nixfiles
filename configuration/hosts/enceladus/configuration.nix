@@ -13,6 +13,10 @@
   boot.loader.grub.device = "/dev/sda";
 
   networking.hostName = "enceladus";
+  networking.nameservers = [
+    "185.233.100.100"
+    "2a0c:e300:100"
+  ];
 
   networking.useDHCP = false;
   networking.interfaces.ens18 = {
