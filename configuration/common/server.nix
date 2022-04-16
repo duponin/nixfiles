@@ -25,5 +25,6 @@
       permitRootLogin = "no";
     };
   };
+  environment.systemPackages = with pkgs; [ git ];
   time.timeZone = "Europe/Paris";
 }
