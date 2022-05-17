@@ -25,6 +25,7 @@
       permitRootLogin = "no";
     };
   };
-  environment.systemPackages = with pkgs; [ git ];
+  environment.systemPackages = with pkgs; [ git vim ];
+  programs.mosh.enable = true;
   time.timeZone = "Europe/Paris";
 }
