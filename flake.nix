@@ -35,6 +35,7 @@
         modules = [
           ./configuration/hosts/enceladus/configuration.nix
           agenix.nixosModule
+          home-manager.nixosModule
         ];
       };
     };

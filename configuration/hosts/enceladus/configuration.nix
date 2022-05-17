@@ -4,6 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./workstation.nix
       ../../common/flakes.nix
       ../../common/server.nix
     ];
