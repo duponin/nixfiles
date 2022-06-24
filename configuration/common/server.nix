@@ -21,7 +21,7 @@
     openssh = {
       enable = true;
       passwordAuthentication = false;
-      services.openssh.kbdInteractiveAuthentication = false;
+      kbdInteractiveAuthentication = false;
       permitRootLogin = "no";
     };
   };
