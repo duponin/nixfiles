@@ -19,11 +19,12 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.duponin = {
+      home.packages = with pkgs; [ ripgrep ];
       programs.git = {
         enable = true;
         package = pkgs.gitFull;
-        userName = "Antonin Dupont";
-        userEmail = "contact@antonindupont.fr";
+        userName = "duponin";
+        userEmail = "pwet@dupon.in";
         delta.enable = true;
         extraConfig.pull.ff = "only";
         # signing = true;
