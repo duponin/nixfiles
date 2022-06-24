@@ -41,7 +41,7 @@
       mars = nixos.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration/hosts/enceladus/configuration.nix
+          ./configuration/hosts/mars/configuration.nix
           agenix.nixosModule
         ];
       };
