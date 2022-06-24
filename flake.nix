@@ -1,9 +1,9 @@
 {
   inputs = {
     agenix.url = "github:ryantm/agenix";
-    nixos.url = "github:NixOS/nixpkgs/nixos-21.11";
+    nixos.url = "github:NixOS/nixpkgs/nixos-22.05";
     home-manager = {
-      url = "github:nix-community/home-manager/release-21.11";
+      url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixos";
     };
   };
@@ -36,6 +36,13 @@
           ./configuration/hosts/enceladus/configuration.nix
           agenix.nixosModule
           home-manager.nixosModule
+        ];
+      };
+      mars = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration/hosts/enceladus/configuration.nix
+          agenix.nixosModule
         ];
       };
     };

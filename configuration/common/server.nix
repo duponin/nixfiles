@@ -20,8 +20,8 @@
     };
     openssh = {
       enable = true;
-      challengeResponseAuthentication = false;
       passwordAuthentication = false;
+      services.openssh.kbdInteractiveAuthentication = false;
       permitRootLogin = "no";
     };
   };
