@@ -4,7 +4,7 @@
 
 * Install a VM
 
-1. add network to VM (done on hypervisor)
+1. add network to VM (done on hypervisor) (likely obsolete config but anyway)
    1. =ip a add 10.0.0.2/24 dev ens18=
    2. =ip r add default via 10.0.0.1 dev ens18=
    3. =echo "nameserver 185.233.100.100" > /etc/nameserver= (or you can do it later if you hate Qwerty like I do)
@@ -14,13 +14,13 @@
    3. =sudo -i=
 3. setup disk
    1. =parted /dev/sda -- mklabel msdos=
-   2. =parted /dev/sda -- mkpart primary 0% 100%= (partition like you want)
-   3. =mkfs.ext4 /dev/sda1=
+   2. =parted /dev/sda -- mkpart primary 0% 100%=
+   3. =mkfs.ext4 -L nixos /dev/sda1=
    4. =mount /dev/sda1 /mnt=
 4. install system
-   1. =nixos-generate-config --root /mnt= and save =hardware-configuration.nix= in this repo
+   1. =nixos-generate-config --root /mnt=
+      - save =hardware-configuration.nix= in this repo (maybe not required if that’s an usual VM)
    2. =nix-env -iA nixos.git=
-   3. =git clone https://git.locahlo.st/duponin/nixfiles /mnt/etc/nixfiles=
-   4. =nixos-install --no-root-passwd -I nixos-config=/mnt/etc/nixfiles/configuration/hosts/<HOSTNAME>/configuration.nix=
+   3. =nixos-install --no-root-passwd --flake "git+https://codeberg.org/duponin/nixfiles#<HOSTNAME>"=
 5. reboot
    1. enjoy
