@@ -4,6 +4,7 @@
   networking.firewall.allowedUDPPorts = [ 53 ];
   services.nsd = {
     enable = true;
+    interfaces = [ "0.0.0.0" "::" ];
     zones = {
       "locahlost.net." = {
         data = ''
