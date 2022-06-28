@@ -45,6 +45,13 @@
           agenix.nixosModule
         ];
       };
+      venus = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration/hosts/venus/configuration.nix
+          agenix.nixosModule
+        ];
+      };
     };
   };
 }
