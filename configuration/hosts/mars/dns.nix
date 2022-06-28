@@ -28,6 +28,7 @@
 
           mars IN A 185.233.102.155
           mars IN AAAA 2a0c:e300:12::155
+          venus IN AAAA 2a0c:e300:12::42:1
 
           ; TODO: move in a int/priv zone
           dione IN A 10.0.1.8
