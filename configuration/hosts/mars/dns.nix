@@ -22,7 +22,7 @@
                ; Negative Cache TTL
                604800 )
 
-          @ IN NS ns1.localhost.net.
+          @ IN NS ns1.locahlost.net.
           ns1 IN A 185.233.102.155
           ns1 IN AAAA 2a0c:e300:12::155
 
