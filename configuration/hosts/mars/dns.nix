@@ -26,6 +26,24 @@
 
           mars IN A 185.233.102.155
           mars IN AAAA 2a0c:e300:12::155
+
+          ; TODO: move in a int/priv zone
+          dione 300 IN A 10.0.1.8
+          hyperion 300 IN A 10.0.1.41
+          lapetus 300 IN A 10.0.1.1
+          neith 300 IN A 10.0.1.11
+          tethys 300 IN A 10.0.1.2
+          titan 300 IN A 10.0.1.21
+          triton 300 IN A 10.0.1.31
+          wan.lapetus 300 IN A 192.168.0.215
+          yunotest 300 IN A 10.0.1.213
+
+          ; TODO: (k8s.)homelab zone
+          master1.k8s-homelab 300 IN A 10.0.20.4
+          node1.k8s-homelab 300 IN A 10.0.20.11
+          node2.k8s-homelab 300 IN A 10.0.20.12
+          node3.k8s-homelab 300 IN A 10.0.20.13
+          node4.k8s-homelab 300 IN A 10.0.20.14
         '';
       };
     };
