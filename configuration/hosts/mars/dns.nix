@@ -5,7 +5,7 @@
   services.bind = {
     enable = true;
     zones = {
-      locahlost.net = {
+      "locahlost.net" = {
         extraConfig = "";
         file = "/var/dns/locahlost.net";
         master = true;
