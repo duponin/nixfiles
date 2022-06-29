@@ -32,7 +32,6 @@
       programs.direnv = {
         enable = true;
         nix-direnv.enable = true;
-        nix-direnv.enableFlakes = true; # optional for nix flakes support in home-manager 21.11, not required in home-manager unstable or 22.05
       };
       programs.zsh = {
         enable = true;
@@ -84,7 +83,7 @@
           {
               mkdir -p $1 && cd $1
           }
-  
+
         '';
       };
       programs.tmux.enable = true;
