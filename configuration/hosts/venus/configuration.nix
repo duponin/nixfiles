@@ -1,8 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ # Include the results of the hardware scan.
+  imports = [
     ./hardware-configuration.nix
+    ./s3.nix
     ../../common/flakes.nix
     ../../common/server.nix
   ];
