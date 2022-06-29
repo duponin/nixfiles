@@ -2,13 +2,13 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./dns.nix
-      ../../common/flakes.nix
-      ../../common/server.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./dns.nix
+    ./hosting.nix
+    ../../common/flakes.nix
+    ../../common/server.nix
+  ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
