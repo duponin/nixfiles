@@ -22,6 +22,7 @@
 
   networking.useDHCP = false;
   networking.interfaces.ens18 = {
+    mtu = 1378;
     ipv4 = {
       addresses = [{
         address = "185.233.102.143";
