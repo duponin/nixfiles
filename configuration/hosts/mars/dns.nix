@@ -12,7 +12,7 @@
           $TTL 3600
           @ IN SOA ns1.locahlost.net. admin.locahlost.net. (
                ; Serial
-               1
+               2
                ; Refresh
                604800
                ; Retry
@@ -26,6 +26,8 @@
           ns1 IN A 185.233.102.155
           ns1 IN AAAA 2a0c:e300:12::155
 
+          enceladus IN A    185.233.102.143
+          enceladus IN AAAA 2a0c:e300:12::143
           mars IN A 185.233.102.155
           mars IN AAAA 2a0c:e300:12::155
           venus IN AAAA 2a0c:e300:12::42:1
