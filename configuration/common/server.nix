@@ -25,6 +25,12 @@
       permitRootLogin = "no";
     };
   };
+  system.autoUpgrade = {
+    enable = true;
+    dates = "02:02";
+    allowReboot = true;
+    flake = "git+https://codeberg.org/duponin/nixfiles";
+  };
   environment.systemPackages = with pkgs; [ git vim ];
   programs.mosh.enable = true;
   time.timeZone = "Europe/Paris";
