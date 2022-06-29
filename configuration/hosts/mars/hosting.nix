@@ -14,12 +14,12 @@
       "s3.locahlo.st" = {
         forceSSL = true;
         enableACME = true;
-        proxyPass = "http://192.168.10.11:9000/";
+        locations."/".proxyPass = "http://192.168.10.11:9000/";
       };
       "console.s3.locahlo.st" = {
         forceSSL = true;
         enableACME = true;
-        proxyPass = "http://192.168.10.11:9001/";
+        locations."/".proxyPass = "http://192.168.10.11:9001/";
       };
     };
   };
