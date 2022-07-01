@@ -9,6 +9,7 @@
     ./doom-emacs.nix
     ./flakes.nix
     ./home-manager.nix
+    ./monitoring-agent.nix
     ./shell.nix
     ./zsa.nix # Keyboard (ex: ergodox-ez)
   ];

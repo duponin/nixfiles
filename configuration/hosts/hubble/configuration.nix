@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
+{ config, locahlost, pkgs, ... }:
 
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./monitoring.nix
+    ../../modules/monitoring-agent.nix
     ../../common/flakes.nix
     ../../common/server.nix
   ];
@@ -40,6 +41,7 @@
   };
 
   services.qemuGuest.enable = true;
+  locahlost.monitoring-agent.enable = true;
 
   system.stateVersion = "22.05";
 }
