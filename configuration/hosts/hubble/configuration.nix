@@ -25,6 +25,14 @@
       }];
     };
   };
+  networking.interfaces.ens19 = {
+    ipv4 = {
+      addresses = [{
+        address = "192.168.10.12";
+        prefixLength = 24;
+      }];
+    };
+  };
   networking.defaultGateway6 = {
     address = "2a0c:e300:12::190";
     interface = "ens18";
