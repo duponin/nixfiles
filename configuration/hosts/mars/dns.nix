@@ -33,6 +33,7 @@
 
           mars IN A    185.233.102.155
           mars IN AAAA 2a0c:e300:12::155
+          mars.int IN A 192.168.10.10
 
           venus IN AAAA 2a0c:e300:12::42:1
           venus.int IN A 192.168.10.11
