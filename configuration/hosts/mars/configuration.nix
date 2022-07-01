@@ -6,6 +6,7 @@
     ./hardware-configuration.nix
     ./dns.nix
     ./hosting.nix
+    ../../modules/monitoring-agent.nix
     ../../common/flakes.nix
     ../../common/server.nix
   ];
@@ -55,6 +56,10 @@
   };
 
   services.qemuGuest.enable = true;
+  locahlost.monitoring-agent = {
+    enable = true;
+    interface = "ens19";
+  };
 
   system.stateVersion = "22.05";
 }

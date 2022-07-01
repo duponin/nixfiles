@@ -19,3 +19,5 @@ scrape_configs:
     static_configs:
       - targets:
         - localhost:9100
+        - mars.int.locahlost.net:9100
+        - venus.int.locahlost.net:9100
