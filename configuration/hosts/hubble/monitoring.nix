@@ -15,6 +15,7 @@
     prometheus = {
       enable = true;
       listenAddress = "127.0.0.1";
+      extraFlags = [ "--web.external-url=/prometheus/" ];
     };
 
     nginx = {
@@ -27,14 +28,15 @@
       virtualHosts."monitoring.locahlo.st" = {
         forceSSL = true;
         enableACME = true;
-        locations."/grafana" = {
+        locations."/grafana/" = {
           proxyWebsockets = true;
           proxyPass =
             "http://127.0.0.1:${toString config.services.grafana.port}/";
         };
-        locations."/prometheus" = {
-          proxyPass =
-            "http://127.0.0.1:${toString config.services.prometheus.port}/";
+        locations."/prometheus/" = {
+          proxyPass = "http://127.0.0.1:${
+              toString config.services.prometheus.port
+            }/prometheus/";
         };
       };
     };
