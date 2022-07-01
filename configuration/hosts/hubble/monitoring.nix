@@ -16,6 +16,7 @@
       enable = true;
       listenAddress = "127.0.0.1";
       extraFlags = [ "--web.external-url=/prometheus/" ];
+      configText = lib.strings.fileContents ./prometheus.yml;
     };
 
     nginx = {
