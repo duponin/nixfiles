@@ -16,7 +16,7 @@
    1. =parted /dev/sda -- mklabel msdos=
    2. =parted /dev/sda -- mkpart primary 0% 100%=
    3. =mkfs.ext4 -L nixos /dev/sda1=
-   4. =mount /dev/sda1 /mnt=
+   4. =mount /dev/disk/by-label/nixos /mnt=
 4. install system
    1. =nixos-generate-config --root /mnt=
       - save =hardware-configuration.nix= in this repo (maybe not required if that’s an usual VM)
