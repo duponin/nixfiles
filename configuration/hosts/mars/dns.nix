@@ -37,6 +37,9 @@
           venus IN AAAA 2a0c:e300:12::42:1
           venus.int IN A 192.168.10.11
 
+          hubble IN AAAA 2a0c:e300:12::42:2
+          hubble.int IN A 192.168.10.12
+
           ; TODO: move in a int/priv zone
           dione IN A 10.0.1.8
           hyperion IN A 10.0.1.41
