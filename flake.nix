@@ -47,9 +47,11 @@
       };
       venus = nixos.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          ./configuration/hosts/venus/configuration.nix
-        ];
+        modules = [ ./configuration/hosts/venus/configuration.nix ];
+      };
+      hubble = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/hubble/configuration.nix ];
       };
     };
   };
