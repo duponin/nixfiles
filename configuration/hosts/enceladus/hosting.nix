@@ -12,5 +12,5 @@
     };
   };
   security.acme.acceptTerms = true;
-  security.acme.email = "pwet+acme@dupon.in";
+  security.acme.defaults.email = "pwet+acme@dupon.in";
 }
