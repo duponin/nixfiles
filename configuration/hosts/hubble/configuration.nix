@@ -3,6 +3,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./logs-centralisation.nix
     ./monitoring.nix
     ../../modules/monitoring-agent.nix
     ../../common/flakes.nix
