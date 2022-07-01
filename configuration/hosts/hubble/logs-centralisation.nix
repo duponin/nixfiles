@@ -25,10 +25,10 @@
       };
       schema_config = {
         configs = [{
-          from = "2020-10-24T00:00:00.000Z";
+          from = "2020-10-24";
           store = "boltdb-shipper";
           object_store = "filesystem";
-          schema = "h11";
+          schema = "v11";
           index = {
             prefix = "index_";
             period = "24h";
