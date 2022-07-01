@@ -3,6 +3,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./monitoring.nix
     ../../common/flakes.nix
     ../../common/server.nix
   ];
