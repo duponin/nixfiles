@@ -17,6 +17,7 @@
         grpc_listen_port = 9096;
       };
       common = {
+        path_prefix = "/tmp/loki";
         storage = {
           filesystem = {
             chunks_directory = "/tmp/loki/chunks";
