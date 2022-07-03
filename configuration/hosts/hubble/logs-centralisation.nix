@@ -5,7 +5,7 @@
   # but I should add authentication on anyway, at least as exercise
   # at the viewer discretion ;)
   services.nginx.virtualHosts."monitoring.locahlo.st" = {
-    locations."/loki/".proxyPass = "http://127.0.0.1:3100";
+    locations."/loki/".proxyPass = "http://127.0.0.1:3100/";
   };
 
   services.loki = {
@@ -17,7 +17,6 @@
         grpc_listen_port = 9096;
       };
       common = {
-        path_prefix = "/tmp/loki";
         storage = {
           filesystem = {
             chunks_directory = "/tmp/loki/chunks";
