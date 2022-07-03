@@ -33,7 +33,7 @@ in {
           endpoint = "https://monitoring.locahlo.st/loki";
           compression = "none";
           labels.forwarder = "vector";
-          encoding.codec = "json";
+          encoding.codec = "logfmt";
         };
         sources.journald = {
           type = "journald";
