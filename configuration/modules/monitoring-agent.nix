@@ -22,27 +22,5 @@ in {
         firewallFilter = "-i ${cfg.interface} -p tcp -m tcp --dport 9100";
       })
     ];
-
-    services.vector = {
-      enable = true;
-      journaldAccess = true;
-      settings = {
-        sinks.locahlost_loki_sink = {
-          type = "loki";
-          inputs = [ "journald" ];
-          endpoint = "https://monitoring.locahlo.st/loki";
-          compression = "none";
-          labels.forwarder = "vector";
-          encoding.codec = "json";
-        };
-        sources.journald = {
-          type = "journald";
-          current_boot_only = true;
-          exclude_units = [
-            "loki.service" # otherwise it’s spamming for no real good purpose
-          ];
-        };
-      };
-    };
   };
 }
