@@ -38,6 +38,9 @@ in {
         sources.journald = {
           type = "journald";
           current_boot_only = true;
+          exclude_units = [
+            "loki.service" # otherwise it’s spamming for no real good purpose
+          ];
         };
       };
     };
