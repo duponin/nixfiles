@@ -1,6 +1,13 @@
 { config, lib, pkgs, ... }:
 
 {
+  # I trust you random from the Internet not spamming this service
+  # but I should add authentication on anyway, at least as exercise
+  # at the viewer discretion ;)
+  services.nginx.virtualHosts."monitoring.locahlo.st" = {
+    locations."/loki/".proxyPass = "http://127.0.0.1:3100";
+  };
+
   services.loki = {
     enable = true;
     configuration = {
