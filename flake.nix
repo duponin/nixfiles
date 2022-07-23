@@ -2,12 +2,13 @@
   inputs = {
     agenix.url = "github:ryantm/agenix";
     nixos.url = "github:NixOS/nixpkgs/nixos-22.05";
+    nixos-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager = {
       url = "github:nix-community/home-manager/release-22.05";
       inputs.nixpkgs.follows = "nixos";
     };
   };
-  outputs = { self, agenix, nixos, home-manager }: {
+  outputs = { self, agenix, nixos, nixos-unstable, home-manager }: {
     nixosConfigurations = {
       reimu = nixos.lib.nixosSystem {
         system = "x86_64-linux";
@@ -51,7 +52,7 @@
         system = "x86_64-linux";
         modules = [ ./configuration/hosts/hubble/configuration.nix ];
       };
-      umbriel = nixos.lib.nixosSystem {
+      umbriel = nixos-unstable.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./configuration/hosts/umbriel/configuration.nix ];
       };
