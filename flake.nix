@@ -40,10 +40,8 @@
       };
       mars = nixos.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [
-          ./configuration/hosts/mars/configuration.nix
-          agenix.nixosModule
-        ];
+        modules =
+          [ ./configuration/hosts/mars/configuration.nix agenix.nixosModule ];
       };
       venus = nixos.lib.nixosSystem {
         system = "x86_64-linux";
@@ -52,6 +50,10 @@
       hubble = nixos.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./configuration/hosts/hubble/configuration.nix ];
+      };
+      umbriel = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/umbriel/configuration.nix ];
       };
     };
   };
