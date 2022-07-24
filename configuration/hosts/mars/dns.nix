@@ -12,7 +12,7 @@
           $TTL 3600
           @ IN SOA ns1.locahlost.net. admin.locahlost.net. (
                ; Serial
-               3
+               4
                ; Refresh
                604800
                ; Retry
@@ -40,6 +40,9 @@
 
           hubble IN AAAA 2a0c:e300:12::42:2
           hubble.int IN A 192.168.10.12
+
+          umbriel IN A    185.233.102.141
+          umbriel IN AAAA 2a0c:e300:12::141
 
           ; TODO: move in a int/priv zone
           dione IN A 10.0.1.8
