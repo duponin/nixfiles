@@ -28,6 +28,7 @@
     dates = "02:02";
     allowReboot = true;
     flake = "git+https://git.melisse.org/duponin/nixfiles.git/";
+    flags = [ "--no-write-lock-file" ];
   };
   environment.systemPackages = with pkgs; [ git vim ];
   programs.mosh.enable = true;
