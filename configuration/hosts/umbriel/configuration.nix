@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./gitlab-runner.nix
     ../../common/flakes.nix
     ../../common/server.nix
   ];
