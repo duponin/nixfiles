@@ -27,7 +27,7 @@
     enable = true;
     dates = "02:02";
     allowReboot = true;
-    flake = "git+https://git.melisse.org/duponin/nixfiles";
+    flake = "git+https://git.melisse.org/duponin/nixfiles.git/";
   };
   environment.systemPackages = with pkgs; [ git vim ];
   programs.mosh.enable = true;
