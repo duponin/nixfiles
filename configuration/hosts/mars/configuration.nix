@@ -1,4 +1,3 @@
-
 { config, pkgs, ... }:
 
 {
@@ -17,10 +16,7 @@
 
   networking.hostName = "mars";
   networking.domain = "locahlost.net";
-  networking.nameservers = [
-    "185.233.100.100"
-    "2a0c:e300::100"
-  ];
+  networking.nameservers = [ "185.233.100.100" "2a0c:e300::100" ];
 
   networking.useDHCP = false;
   networking.interfaces.ens18 = {
@@ -39,10 +35,11 @@
     };
   };
   networking.interfaces.ens19 = {
-    ipv4 = {
+    useDHCP = true;
+    ipv6 = {
       addresses = [{
-        address = "192.168.10.10";
-        prefixLength = 24;
+        address = "2a0c:e304:c0fe:1::4";
+        prefixLength = 64;
       }];
     };
   };

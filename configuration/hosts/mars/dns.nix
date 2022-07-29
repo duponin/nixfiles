@@ -12,7 +12,7 @@
           $TTL 3600
           @ IN SOA ns1.locahlost.net. admin.locahlost.net. (
                ; Serial
-               5
+               6
                ; Refresh
                604800
                ; Retry
@@ -33,13 +33,9 @@
 
           mars IN A    185.233.102.155
           mars IN AAAA 2a0c:e300:12::155
-          mars.int IN A 192.168.10.10
 
-          venus IN AAAA 2a0c:e300:12::42:1
-          venus.int IN A 192.168.10.11
-
-          hubble IN AAAA 2a0c:e300:12::42:2
-          hubble.int IN A 192.168.10.12
+          hubble IN AAAA 2a0c:e304:c0fe:1::2
+          venus  IN AAAA 2a0c:e304:c0fe:1::3
 
           umbriel IN A    185.233.102.141
           umbriel IN AAAA 2a0c:e300:12::141
