@@ -1,6 +1,7 @@
 { config, locahlost, pkgs, ... }:
 
-{
+let gateway = "2a0c:e304:c0fe:1::1";
+in {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./monitoring.nix
@@ -15,7 +16,7 @@
 
   networking.hostName = "hubble";
   networking.domain = "locahlost.net";
-  networking.nameservers = [ "2a0c:e300::100" ];
+  networking.nameservers = [ gateway ];
 
   networking.useDHCP = false;
   networking.interfaces.ens18 = {
@@ -28,16 +29,16 @@
     };
   };
   networking.interfaces.ens19 = {
-    ipv4 = {
+    ipv6 = {
       addresses = [{
-        address = "192.168.10.12";
-        prefixLength = 24;
+        address = "2a0c:e304:c0fe:1::2";
+        prefixLength = 64;
       }];
     };
   };
   networking.defaultGateway6 = {
-    address = "2a0c:e300:12::190";
-    interface = "ens18";
+    address = gateway;
+    interface = "ens19";
   };
 
   services.qemuGuest.enable = true;
