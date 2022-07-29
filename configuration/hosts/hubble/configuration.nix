@@ -29,6 +29,7 @@ in {
     };
   };
   networking.interfaces.ens19 = {
+    useDHCP = true;
     ipv6 = {
       addresses = [{
         address = "2a0c:e304:c0fe:1::2";
