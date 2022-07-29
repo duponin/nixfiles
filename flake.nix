@@ -7,7 +7,7 @@
       inputs.nixpkgs.follows = "nixos";
     };
   };
-  outputs = { self, agenix, nixos, nixos-unstable, home-manager }: {
+  outputs = { self, nixos, nixos-unstable, home-manager }: {
     nixosConfigurations = {
       enceladus = nixos.lib.nixosSystem {
         system = "x86_64-linux";
@@ -18,8 +18,7 @@
       };
       mars = nixos.lib.nixosSystem {
         system = "x86_64-linux";
-        modules =
-          [ ./configuration/hosts/mars/configuration.nix agenix.nixosModule ];
+        modules = [ ./configuration/hosts/mars/configuration.nix ];
       };
       venus = nixos.lib.nixosSystem {
         system = "x86_64-linux";
