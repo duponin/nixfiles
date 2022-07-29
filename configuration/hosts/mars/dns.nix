@@ -12,7 +12,7 @@
           $TTL 3600
           @ IN SOA ns1.locahlost.net. admin.locahlost.net. (
                ; Serial
-               4
+               5
                ; Refresh
                604800
                ; Retry
@@ -43,6 +43,9 @@
 
           umbriel IN A    185.233.102.141
           umbriel IN AAAA 2a0c:e300:12::141
+
+          jupiter IN A    185.233.102.189
+          jupiter IN AAAA 2a0c:e300:12::189
 
           ; TODO: move in a int/priv zone
           dione IN A 10.0.1.8
