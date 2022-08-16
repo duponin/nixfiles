@@ -19,6 +19,9 @@
   networking.domain = "locahlost.net";
   networking.nameservers = [ "185.233.100.100" "2a0c:e300::100" ];
 
+  virtualisation.docker.enable = true;
+  environment.systemPackages = with pkgs; [ docker-compose ];
+
   networking.useDHCP = false;
   networking.interfaces.eth0 = {
     mtu = 1378;
