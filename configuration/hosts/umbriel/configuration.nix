@@ -4,6 +4,7 @@
   imports = [
     ./hardware-configuration.nix
     ./gitlab-runner.nix
+    ./minecraft.nix
     ../../common/flakes.nix
     ../../common/server.nix
   ];
