@@ -43,6 +43,8 @@
           jupiter IN A    185.233.102.189
           jupiter IN AAAA 2a0c:e300:12::189
 
+          lain IN AAAA 2a0c:e300::3:69
+
           ; TODO: move in a int/priv zone
           dione IN A 10.0.1.8
           hyperion IN A 10.0.1.41
