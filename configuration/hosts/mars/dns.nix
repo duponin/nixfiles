@@ -12,7 +12,7 @@
           $TTL 3600
           @ IN SOA ns1.locahlost.net. admin.locahlost.net. (
                ; Serial
-               6
+               7
                ; Refresh
                604800
                ; Retry
@@ -44,6 +44,9 @@
           jupiter IN AAAA 2a0c:e300:12::189
 
           lain IN AAAA 2a0c:e300::3:69
+
+          iss IN A    185.233.103.71
+          iss IN AAAA 2a0c:e300::3:71
 
           ; TODO: move in a int/priv zone
           dione IN A 10.0.1.8
