@@ -3,13 +3,7 @@
 {
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 
-  services.nginx.virtualHosts = {
-    "sentry.locahlo.st" = {
-      enableACME = true;
-      forceSSL = true;
-      locations."/".proxyPass = "http://puck.int.locahlost.net:9000";
-    };
-  };
+  services.nginx.virtualHosts = { };
 
   services.nginx = {
     enable = true;
