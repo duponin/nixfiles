@@ -51,6 +51,8 @@
           iss IN A    185.233.103.71
           iss IN AAAA 2a0c:e300::3:71
 
+          mars.int IN A 10.0.13.10
+
           ; TODO: move in a int/priv zone
           dione IN A 10.0.1.8
           hyperion IN A 10.0.1.41
