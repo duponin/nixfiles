@@ -12,7 +12,7 @@
           $TTL 3600
           @ IN SOA ns1.locahlost.net. admin.locahlost.net. (
                ; Serial
-               9
+               10
                ; Refresh
                604800
                ; Retry

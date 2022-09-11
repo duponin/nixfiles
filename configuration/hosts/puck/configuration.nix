@@ -20,13 +20,13 @@
     mtu = 1500;
     ipv4 = {
       addresses = [{
-        address = "185.233.103.70";
+        address = "185.233.103.71";
         prefixLength = 24;
       }];
     };
     ipv6 = {
       addresses = [{
-        address = "2a0c:e300::3:70";
+        address = "2a0c:e300::3:71";
         prefixLength = 64;
       }];
     };
