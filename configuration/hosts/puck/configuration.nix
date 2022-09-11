@@ -40,6 +40,8 @@
     interface = "ens18";
   };
 
+  networking.interfaces.ens19.useDHCP = true;
+
   services.qemuGuest.enable = true;
 
   system.stateVersion = "22.05";
