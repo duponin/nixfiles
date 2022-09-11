@@ -32,6 +32,10 @@
         system = "x86_64-linux";
         modules = [ ./configuration/hosts/iss/configuration.nix ];
       };
+      puck = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/puck/configuration.nix ];
+      };
       umbriel = nixos-unstable.lib.nixosSystem {
         system = "aarch64-linux";
         modules = [ ./configuration/hosts/umbriel/configuration.nix ];
