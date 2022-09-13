@@ -51,6 +51,7 @@
           iss IN A    185.233.103.71
           iss IN AAAA 2a0c:e300::3:71
 
+          caravelle.int IN A 10.0.12.10
           halley.int IN A 10.0.13.10
           puck.int IN A 10.0.11.20
           webb.int IN A 10.0.11.10

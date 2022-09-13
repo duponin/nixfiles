@@ -7,6 +7,7 @@
     enableTCPIP = true;
     authentication = ''
       host zabbix zabbix 10.0.11.10/32 trust
+      host zabbix zabbix 10.0.11.20/32 trust
     '';
     ensureDatabases = [ # something something
       "zabbix"
