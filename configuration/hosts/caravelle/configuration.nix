@@ -32,5 +32,20 @@
 
   services.qemuGuest.enable = true;
 
+  networking.firewall.allowedTCPPorts = [ 8080 ];
+  services.zabbixWeb = {
+    enable = true;
+    server.address = "webb.int.locahlost.net";
+    database.host = "halley.int.locahlost.net";
+    virtualHost = {
+      adminAddr = "admin+zabbixweb@locahlo.st";
+      hostName = "zabbix.locahlo.st";
+      listen = [{
+        ip = "*";
+        port = 8080;
+      }];
+    };
+  };
+
   system.stateVersion = "22.05";
 }
