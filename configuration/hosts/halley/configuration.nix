@@ -3,6 +3,7 @@
 {
   imports = [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    ./database.nix
     ../../common/flakes.nix
     ../../common/server.nix
   ];
@@ -29,8 +30,6 @@
     address = "10.0.13.1";
     interface = "ens18";
   };
-
-  networking.interfaces.ens19.useDHCP = true;
 
   services.qemuGuest.enable = true;
 

@@ -12,7 +12,7 @@
           $TTL 3600
           @ IN SOA ns1.locahlost.net. admin.locahlost.net. (
                ; Serial
-               10
+               11
                ; Refresh
                604800
                ; Retry
@@ -51,7 +51,9 @@
           iss IN A    185.233.103.71
           iss IN AAAA 2a0c:e300::3:71
 
-          mars.int IN A 10.0.13.10
+          halley.int IN A 10.0.13.10
+          puck.int IN A 10.0.11.20
+          webb.int IN A 10.0.11.10
 
           ; TODO: move in a int/priv zone
           dione IN A 10.0.1.8
