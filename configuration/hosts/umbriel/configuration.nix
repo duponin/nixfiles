@@ -48,5 +48,14 @@
     interface = "eth0";
   };
 
+  nix.trustedUsers = [ "ninjatrappeur" ];
+  users.users.ninjatrappeur = {
+    isNormalUser = true;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHzd1XAB7Pc8Tplur5iV3llOXtvlHru8pLtQlbvHzmt1"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIC+4hyZ2gm6ByteOtwbr6G0lBVHhtwj06rUn9BuLj7Oq"
+    ];
+  };
+
   system.stateVersion = "22.11";
 }
