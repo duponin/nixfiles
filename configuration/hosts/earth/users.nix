@@ -19,7 +19,6 @@
       neovim
       tdesktop
       element-desktop
-      barrier
 
       cura
       freecad

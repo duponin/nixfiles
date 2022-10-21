@@ -60,9 +60,4 @@
       '';
     };
   };
-
-  networking.firewall.allowedTCPPorts = [
-    24800 # Barrier
-  ];
-
 }
