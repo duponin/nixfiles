@@ -16,7 +16,6 @@
       firefox
       vim
       vscodium
-      neovim
       tdesktop
       element-desktop
       barrier
@@ -74,7 +73,6 @@
           mpnv = "mpv --no-video";
           nsl = "nix-shell";
           ssh-proxy = "ssh -D 1080 -q -C -N";
-	  vim = "nvim";
         };
         envExtra = ''
           COMPLETION_WAITING_DOTS="true"
@@ -92,6 +90,12 @@
         '';
       };
       programs.tmux.enable = true;
+      programs.neovim = {
+        enable = true;
+        viAlias = true;
+        vimAlias = true;
+        vimdiffAlias = true;
+      };
     };
   };
 }
