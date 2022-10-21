@@ -32,6 +32,13 @@
         system = "aarch64-linux";
         modules = [ ./configuration/hosts/umbriel/configuration.nix ];
       };
+      earth = nixos-unstable.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          ./configuration/hosts/earth/configuration.nix
+          home-manager.nixosModule
+        ];
+      };
     };
   };
 }
