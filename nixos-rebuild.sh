@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-nixos-rebuild "$@" --flake $PWD
+nixos-rebuild "$@" --flake $PWD --verbose
