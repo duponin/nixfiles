@@ -46,6 +46,10 @@
           home-manager.nixosModule
         ];
       };
+      titan = nixos-unstable.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/titan/configuration.nix ];
+      };
     };
   };
 }
