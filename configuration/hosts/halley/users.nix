@@ -20,6 +20,9 @@
       element-desktop
       barrier
 
+      cura
+      freecad
+
       # Doom Emacs
       ripgrep coreutils fd clang python3
     ];
