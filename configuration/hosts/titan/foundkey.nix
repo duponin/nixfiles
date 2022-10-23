@@ -31,5 +31,12 @@
         };
       };
     };
+    nginx.virtualHosts = {
+      "nyaa.locahlo.st" = {
+        forceSSL = true;
+        enableACME = true;
+        proxyPass = "http://localhost:3000";
+      };
+    };
   };
 }
