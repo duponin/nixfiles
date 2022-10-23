@@ -55,23 +55,23 @@
     groups."foundkey_locahlost" = {};
   };
 
-  systemd.services.foundkey_locahlost = {
-    description = "Foundkey social network";
-    after = [
-      "network-online.target"
-      "postgresql.service"
-      "redis-foundkey_locahlost.service"
-    ];
-    wantedBy = [ "multi-user.target" ];
-    serviceConfig = {
-      User = "foundkey_locahlost";
-      Group = "foundkey_locahlost";
-      Type = "simple";
-      WorkingDirectory = "~";
-      environment.NODE_ENV = "production";
-      TimeOutSec = 60;
-      Restart = "always";
-      ExecStart = "${pkgs.nodejs}/bin/npm start";
-    };
-  };
+  #systemd.services.foundkey_locahlost = {
+  #  description = "Foundkey social network";
+  #  after = [
+  #    "network-online.target"
+  #    "postgresql.service"
+  #    "redis-foundkey_locahlost.service"
+  #  ];
+  #  wantedBy = [ "multi-user.target" ];
+  #  serviceConfig = {
+  #    User = "foundkey_locahlost";
+  #    Group = "foundkey_locahlost";
+  #    Type = "simple";
+  #    WorkingDirectory = "~";
+  #    environment.NODE_ENV = "production";
+  #    TimeOutSec = 60;
+  #    Restart = "always";
+  #    ExecStart = "${pkgs.nodejs}/bin/npm start";
+  #  };
+  #};
 }
