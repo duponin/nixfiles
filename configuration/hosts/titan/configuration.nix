@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./foundkey.nix
     ./web.nix
     ../../common/flakes.nix
     ../../common/server.nix
