@@ -21,10 +21,13 @@
         "foundkey_locahlost"
       ];
     };
-    redis.servers = {
-      "foundkey_locahlost" = {
-        enable = true;
-        logfile = "stdout";
+    redis = {
+      vmOverCommit = true;
+      servers = {
+        "foundkey_locahlost" = {
+          enable = true;
+          logfile = "stdout";
+        };
       };
     };
   };
