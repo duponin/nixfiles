@@ -33,5 +33,6 @@
   };
   environment.systemPackages = with pkgs; [ git vim ];
   programs.mosh.enable = true;
+  programs.tmux.enable = true;
   time.timeZone = "Europe/Paris";
 }
