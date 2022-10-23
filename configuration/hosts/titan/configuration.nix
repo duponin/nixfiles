@@ -3,6 +3,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./web.nix
     ../../common/flakes.nix
     ../../common/server.nix
   ];
