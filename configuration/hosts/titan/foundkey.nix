@@ -46,7 +46,7 @@
   # nixos/modules/services/networking/pleroma.nix
 
   users = {
-    users."Foundkey_locahlost" = {
+    users."foundkey_locahlost" = {
       description = "Foundkey locahlost user";
       home = "/srv/foundkey";
       group = "foundkey_locahlost";
