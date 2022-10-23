@@ -27,6 +27,7 @@
         "foundkey_locahlost" = {
           enable = true;
           logfile = "stdout";
+          port = 6379;
         };
       };
     };
