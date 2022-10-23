@@ -71,7 +71,7 @@
       environment.NODE_ENV = "production";
       TimeOutSec = 60;
       Restart = "always";
-      ExecStart = "${pkgs.npm}/bin/npm start";
+      ExecStart = "${pkgs.nodejs}/bin/npm start";
     };
   };
 }
