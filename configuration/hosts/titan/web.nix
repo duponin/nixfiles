@@ -4,6 +4,11 @@
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 
   services.nginx.enable = true;
+  services.nginx = {
+    recommendedProxySettings = true;
+    recommendedGzipSettings = true;
+    recommendedTlsSettings = true;
+  };
   services.nginx.virtualHosts = {
     "titan.locahlost.net" = {
       default = true;
