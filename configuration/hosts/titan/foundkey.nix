@@ -35,7 +35,10 @@
       "nyaa.locahlo.st" = {
         forceSSL = true;
         enableACME = true;
-        locations."/".proxyPass = "http://localhost:3000";
+        locations."/" = {
+          proxyPass = "http://localhost:3000";
+          proxyWebsockets = true;
+        };
       };
     };
   };
