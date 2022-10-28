@@ -8,7 +8,12 @@
     shell = pkgs.zsh;
     isNormalUser = true;
     description = "Duponin";
-    extraGroups = [ "networkmanager" "plugdev" "wheel" ];
+    extraGroups = [
+      "docker"
+      "networkmanager"
+      "plugdev"
+      "wheel"
+    ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJh6W2o61dlOIcBXeWRhXWSYD/W8FDVf3/p4FNfL2L6p duponin@rilakkuma"
     ];
