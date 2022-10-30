@@ -11,6 +11,7 @@
     extraGroups = [
       "docker"
       "networkmanager"
+      "libvirtd"
       "plugdev"
       "wheel"
     ];

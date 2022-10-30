@@ -23,5 +23,12 @@
     };
   };
 
+  virtualisation.libvirtd.enable = true;
+
   virtualisation.docker.enable = true;
+
+  # Trial for Docker Nvidia
+  virtualisation.docker.enableNvidia = true;
+  hardware.opengl.driSupport = true;
+  hardware.opengl.driSupport32Bit = true;
 }
