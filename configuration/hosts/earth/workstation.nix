@@ -31,4 +31,7 @@
   virtualisation.docker.enableNvidia = true;
   hardware.opengl.driSupport = true;
   hardware.opengl.driSupport32Bit = true;
+
+  # Logitech fun and stuff
+  hardware.logitech.wireless.enable = true;
 }

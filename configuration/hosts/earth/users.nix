@@ -37,6 +37,9 @@
       libusb
       wally-cli
 
+      solaar
+
+      tmate
 
       # Doom Emacs
       ripgrep coreutils fd clang python3
