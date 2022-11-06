@@ -48,6 +48,9 @@
           titan IN A    185.233.103.70
           titan IN AAAA 2a0c:e300::3:70
 
+          earth IN A 82.64.90.29
+          earth IN A 2a01:e0a:18c:37b0::42
+
           ; TODO: move in a int/priv zone
           dione IN A 10.0.1.8
           hyperion IN A 10.0.1.41
