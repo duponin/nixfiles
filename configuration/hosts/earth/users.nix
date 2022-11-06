@@ -30,7 +30,7 @@
       freecad
       darktable
 
-      polymc
+      prismlauncher
       mumble
 
       # To flash Keyboard
@@ -118,7 +118,7 @@
     description = "Evelyn";
     packages = with pkgs; [
       firefox
-      polymc
+      prismlauncher
       mumble
     ];
   };
