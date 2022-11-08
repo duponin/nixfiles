@@ -6,12 +6,14 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./users.nix
       ./services.nix
       ./workstation.nix
       ./games.nix
+      ./web.nix
       ./zfs.nix
     ];
 
