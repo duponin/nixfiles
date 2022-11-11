@@ -23,6 +23,9 @@
     };
   };
 
+  networking.hosts."::1" = [ "mastodon.test.dupon.in" ];
+  networking.hosts."127.0.0.1" = [ "mastodon.test.dupon.in" ];
+
   virtualisation.libvirtd.enable = true;
 
   virtualisation.docker.enable = true;

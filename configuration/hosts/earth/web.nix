@@ -23,6 +23,18 @@
         proxyPass = "http://localhost:3000";
       };
     };
+    "mastodon.test.dupon.in" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://localhost:5000";
+        extraConfig = ''
+          allow 127.0.0.1;
+          allow ::1;
+          deny all;
+        '';
+      };
+    };
   };
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "admin+acme@locahlo.st";
