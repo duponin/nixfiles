@@ -9,9 +9,10 @@
     isNormalUser = true;
     description = "Duponin";
     extraGroups = [
+      "adbusers"
       "docker"
-      "networkmanager"
       "libvirtd"
+      "networkmanager"
       "plugdev"
       "wheel"
     ];

@@ -37,4 +37,6 @@
 
   # Logitech fun and stuff
   hardware.logitech.wireless.enable = true;
+
+  programs.adb.enable = true;
 }
