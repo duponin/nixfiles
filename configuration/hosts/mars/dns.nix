@@ -43,6 +43,7 @@
           jupiter IN A    185.233.102.189
           jupiter IN AAAA 2a0c:e300:12::189
 
+          lain IN A    185.233.103.69
           lain IN AAAA 2a0c:e300::3:69
 
           titan IN A    185.233.103.70
