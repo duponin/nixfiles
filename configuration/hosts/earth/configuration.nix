@@ -11,6 +11,7 @@
       ./hardware-configuration.nix
       ./users.nix
       ./services.nix
+      ./indra.nix
       ./workstation.nix
       ./games.nix
       ./web.nix

@@ -23,6 +23,18 @@
         proxyPass = "http://localhost:3000";
       };
     };
+    "indra.dupon.in" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://localhost:6000";
+      };
+    };
+    "indra.social" = {
+      forceSSL = true;
+      enableACME = true;
+      root = "/var/www/indra.social";
+    };
     "mastodon.test.dupon.in" = {
       forceSSL = true;
       enableACME = true;
