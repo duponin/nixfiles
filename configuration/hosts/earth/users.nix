@@ -20,12 +20,14 @@
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJh6W2o61dlOIcBXeWRhXWSYD/W8FDVf3/p4FNfL2L6p duponin@rilakkuma"
     ];
     packages = with pkgs; [
+      iosevka
       firefox
-      vim
       vscodium
       neovim
       tdesktop
       element-desktop
+      signal-desktop
+      clementine
 
       cura
       freecad
@@ -41,16 +43,21 @@
       solaar
 
       tmate
+      podman-compose
 
       # Doom Emacs
-      ripgrep coreutils fd clang python3
+      ripgrep
+      coreutils
+      fd
+      clang
+      python3
     ];
   };
 
   home-manager = {
-   useGlobalPkgs = true;
-   useUserPackages = true;
-   users.duponin = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.duponin = {
       programs.emacs.enable = true;
       services.emacs = {
         enable = true;
@@ -116,7 +123,7 @@
   };
 
   users.users.evelyn = {
-    initialHashedPassword= "$6$OYhJbCQztKapOFLP$HcZSPGS41b4QsiKz6rp9SW4pAyY8Lw.LP88VVTZ/xqGENuYXhK1V3M6TQC86c09DOpw6ydZc2Q6hg3N5n8a7e.";
+    initialHashedPassword = "$6$OYhJbCQztKapOFLP$HcZSPGS41b4QsiKz6rp9SW4pAyY8Lw.LP88VVTZ/xqGENuYXhK1V3M6TQC86c09DOpw6ydZc2Q6hg3N5n8a7e.";
     shell = pkgs.bash;
     isNormalUser = true;
     description = "Evelyn";
