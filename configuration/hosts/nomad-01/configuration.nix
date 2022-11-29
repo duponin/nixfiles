@@ -3,6 +3,9 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ../../common/flakes.nix
+    ../../common/server.nix
+
   ];
 
   boot.loader.grub.enable = true;
