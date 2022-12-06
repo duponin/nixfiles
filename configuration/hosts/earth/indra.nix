@@ -9,10 +9,10 @@
     users."indra" = {
       description = "indra social user";
       home = "/srv/indra";
-      group = "foundkey_locahlost";
+      group = "indra";
       isSystemUser = true;
       packages = [ pkgs.elixir ];
     };
-    groups."foundkey_locahlost" = {};
+    groups."indra" = { };
   };
 }
