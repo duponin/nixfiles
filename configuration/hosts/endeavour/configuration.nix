@@ -10,7 +10,7 @@
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/disk/by-label/nixos";
+  boot.loader.grub.device = "/dev/sdf";
 
   networking.hostName = "endeavour";
   networking.domain = "locahlost.net";
