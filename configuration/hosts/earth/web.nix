@@ -47,6 +47,20 @@
         '';
       };
     };
+    "udongein.xyz" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://192.168.0.11:6661";
+      };
+    };
+    "dev.udongein.xyz" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyPass = "http://192.168.0.11:6662";
+      };
+    };
   };
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "admin+acme@locahlo.st";
