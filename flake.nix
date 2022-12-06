@@ -50,6 +50,10 @@
         system = "x86_64-linux";
         modules = [ ./configuration/hosts/titan/configuration.nix ];
       };
+      endeavour = nixos-unstable.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/endeavour/configuration.nix ];
+      };
 
       #-------------
       # Homelab part
