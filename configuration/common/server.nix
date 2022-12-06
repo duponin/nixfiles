@@ -2,6 +2,7 @@
 
 {
   security.sudo.wheelNeedsPassword = false;
+  security.doas.wheelNeedsPassword = false;
   nix.trustedUsers = [ "@wheel" ];
   users.mutableUsers = false;
   users.users.duponin = {
@@ -22,7 +23,7 @@
       enable = true;
       passwordAuthentication = false;
       kbdInteractiveAuthentication = false;
-      permitRootLogin = "no";
+      permitRootLogin = pkgs.lib.mkForce "no";
     };
   };
   system.autoUpgrade = {
