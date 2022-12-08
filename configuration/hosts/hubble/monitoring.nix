@@ -8,19 +8,28 @@
       enable = true;
       port = 3000;
       domain = "monitoring.locahlo.st";
-      rootUrl = "https://monitoring.locahlo.st/grafana/";
+      rootUrl = "https://monitoring.locahlo.st/";
     };
 
     prometheus = {
       enable = true;
-      extraFlags = [ "--web.external-url=/prometheus/" ];
+      extraFlags = [ "--web.external-url=/prometheus/prometheus/" ];
       configText = lib.strings.fileContents ./prometheus.yml;
     };
 
+    prometheus.exporters = {
+      node.enable = true;
+    };
+
     nginx.enable = true;
+    nginx.recommendedProxySettings = true;
+
     nginx.virtualHosts."${config.networking.fqdn}".locations = {
-      "/prometheus/prometheus".proxyPass = "http://localhost:${toString config.services.prometheus.port}/prometheus/";
-      "/prometheus/node-exporter/".proxyPass = "http://localhost:9100/";
+      "/grafana".proxyPass = "http://localhost:${toString config.services.grafana.port}/";
+      "/grafana".proxyWebsockets = true;
+
+      "/prometheus/prometheus/".proxyPass = "http://localhost:${toString config.services.prometheus.port}/prometheus/prometheus/";
+      "/prometheus/node-exporter/".proxyPass = "http://localhost:${toString config.services.prometheus.exporters.node.port}/";
     };
   };
 }

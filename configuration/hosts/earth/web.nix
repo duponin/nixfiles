@@ -61,6 +61,14 @@
         proxyPass = "http://192.168.0.11:6662";
       };
     };
+    "monitoring.locahlo.st" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyWebsockets = true;
+        proxyPass = "http://hubble.locahlost.net/grafana";
+      };
+    };
   };
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "admin+acme@locahlo.st";
