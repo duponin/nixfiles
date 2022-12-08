@@ -1,23 +1,17 @@
 global:
-  scrape_interval: 15s
-  evaluation_interval: 15s
+  scrape_interval: 10s
+  evaluation_interval: 10s
 
-alerting:
-  alertmanagers:
-    - static_configs:
-        - targets:
-          # - alertmanager:9093
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets:
+#            - alertmanager:9093
 
 scrape_configs:
-  - job_name: "locahlost-prometheus"
-    metrics_path: /prometheus/metrics
+  - job_name: "locahlost-node-exporter"
+    metrics_path: /prometheus/node-exporter/metrics
     static_configs:
       - targets:
-        - localhost:9090
-  - job_name: "locahlost-node"
-    metrics_path: /metrics
-    static_configs:
-      - targets:
-        - localhost:9100
-        - mars.int.locahlost.net:9100
-        - venus.int.locahlost.net:9100
+        - hubble.locahlost.net
+        # - endeavour.locahlost.net
