@@ -39,10 +39,7 @@
 
   virtualisation.libvirtd.enable = true;
 
-  virtualisation.docker = {
-    enable = true;
-    storageDriver = "zfs";
-  };
+  virtualisation.docker.enable = true;
 
   # Trial for Containers with Nvidia
   virtualisation.docker.enableNvidia = true;
