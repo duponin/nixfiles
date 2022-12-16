@@ -30,7 +30,7 @@
     enable = true;
     dates = "02:02";
     allowReboot = true;
-    flake = "git+https://git.melisse.org/duponin/nixfiles.git/";
+    flake = "git+https://codeberg.org/duponin/nixfiles.git/";
     flags = [ "--no-write-lock-file" ];
   };
   environment.systemPackages = with pkgs; [ git vim ];
