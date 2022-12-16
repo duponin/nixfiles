@@ -4,6 +4,7 @@
   # https://nixos.wiki/wiki/ZFS
   # https://openzfs.github.io/openzfs-docs/Getting%20Started/NixOS/index.html
   boot.supportedFilesystems = [ "zfs" ];
+  boot.zfs.extraPools = [ "shelf" ];
   networking.hostId = "cafecafe";
 
   services.zfs.autoScrub = {
