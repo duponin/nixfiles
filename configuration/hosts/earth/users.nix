@@ -121,16 +121,4 @@
       programs.tmux.enable = true;
     };
   };
-
-  users.users.evelyn = {
-    initialHashedPassword = "$6$OYhJbCQztKapOFLP$HcZSPGS41b4QsiKz6rp9SW4pAyY8Lw.LP88VVTZ/xqGENuYXhK1V3M6TQC86c09DOpw6ydZc2Q6hg3N5n8a7e.";
-    shell = pkgs.bash;
-    isNormalUser = true;
-    description = "Evelyn";
-    packages = with pkgs; [
-      firefox
-      prismlauncher
-      mumble
-    ];
-  };
 }
