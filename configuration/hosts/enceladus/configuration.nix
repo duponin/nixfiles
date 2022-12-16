@@ -2,7 +2,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./workstation.nix
       ./hosting.nix
@@ -16,8 +17,8 @@
 
   networking.hostName = "enceladus";
   networking.nameservers = [
-    "185.233.100.100"
-    "2a0c:e300::100"
+    "1.1.1.1"
+    "2606:4700:4700::1111"
   ];
 
   networking.useDHCP = false;

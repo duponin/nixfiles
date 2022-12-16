@@ -7,7 +7,7 @@
 1. add network to VM (done on hypervisor) (likely obsolete config but anyway)
    1. =ip a add 10.0.0.2/24 dev ens18=
    2. =ip r add default via 10.0.0.1 dev ens18=
-   3. =echo "nameserver 185.233.100.100" > /etc/nameserver= (or you can do it later if you hate Qwerty like I do)
+   3. =echo "nameserver 1.1.1.1" > /etc/nameserver= (or you can do it later if you hate Qwerty like I do)
 2. connect via SSH to VM
    1. =passwd= (whatever you want, it's temporary)
    2. =ssh -J YOUR_PROXY nixos@VM=
