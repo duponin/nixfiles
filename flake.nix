@@ -9,28 +9,9 @@
   };
   outputs = { self, nixos, nixos-unstable, home-manager }: {
     nixosConfigurations = {
-      enceladus = nixos.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [
-          ./configuration/hosts/enceladus/configuration.nix
-          home-manager.nixosModule
-        ];
-      };
-      mars = nixos.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./configuration/hosts/mars/configuration.nix ];
-      };
-      venus = nixos.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./configuration/hosts/venus/configuration.nix ];
-      };
       hubble = nixos.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [ ./configuration/hosts/hubble/configuration.nix ];
-      };
-      umbriel = nixos-unstable.lib.nixosSystem {
-        system = "aarch64-linux";
-        modules = [ ./configuration/hosts/umbriel/configuration.nix ];
       };
       earth = nixos-unstable.lib.nixosSystem {
         system = "x86_64-linux";
