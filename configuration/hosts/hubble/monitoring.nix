@@ -6,9 +6,11 @@
   services = {
     grafana = {
       enable = true;
-      port = 3000;
-      domain = "monitoring.locahlo.st";
-      rootUrl = "https://monitoring.locahlo.st/";
+      settings.server = {
+        http_port = 3000;
+        domain = "monitoring.locahlo.st";
+        root_url = "https://monitoring.locahlo.st/";
+      };
     };
 
     prometheus = {

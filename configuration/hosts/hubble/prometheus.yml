@@ -14,9 +14,16 @@ scrape_configs:
     static_configs:
       - targets:
         - hubble.locahlost.net
-        # - endeavour.locahlost.net
-    relabel_configs:
-      - source_labels: [ __address__ ]
-        target_label: instance
-        regex: '(.*)(:80)?'
-        replacement: '${1}'
+        - endeavour.locahlost.net
+
+  - job_name: "locahlost-zfs-exporter"
+    metrics_path: /prometheus/zfs/metrics
+    static_configs:
+      - targets:
+        - endeavour.locahlost.net
+
+  - job_name: "locahlost-postgres-exporter"
+    metrics_path: /prometheus/postgres/metrics
+    static_configs:
+      - targets:
+        - endeavour.locahlost.net
