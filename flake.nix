@@ -35,6 +35,10 @@
         system = "x86_64-linux";
         modules = [ ./configuration/hosts/endeavour/configuration.nix ];
       };
+      kourou = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/kourou/configuration.nix ];
+      };
 
       #-------------
       # Homelab part
