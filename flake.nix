@@ -48,6 +48,14 @@
         modules = [ ./configuration/hosts/nomad-01/configuration.nix ];
       };
 
+      #-----
+      # Misc
+
+      melisse = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/melisse/configuration.nix ];
+      };
+
     };
   };
 }
