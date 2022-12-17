@@ -17,7 +17,7 @@
   networking.nameservers = [ "1.1.1.1" "2606:4700:4700::1111" ];
 
   networking.useDHCP = false;
-  networking.interfaces.eno1 = {
+  networking.interfaces.ens18 = {
     ipv4 = {
       addresses = [{
         address = "192.168.0.45";
