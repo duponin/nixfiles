@@ -15,6 +15,8 @@ scrape_configs:
       - targets:
         - hubble.locahlost.net
         - endeavour.locahlost.net
+        - kourou.locahlost.net
+        - melisse.locahlost.net
 
   - job_name: "locahlost-zfs-exporter"
     metrics_path: /prometheus/zfs/metrics
