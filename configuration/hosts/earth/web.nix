@@ -69,7 +69,21 @@
         proxyPass = "http://hubble.locahlost.net/grafana";
       };
     };
+    "bitwarden.melisse.org" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        proxyWebsockets = true;
+        proxyPass = "http://melisse.locahlost.net:8000";
+      };
+    };
+    "tbm.melisse.org" = {
+      forceSSL = true;
+      enableACME = true;
+      root = "/var/www/tbm.melisse.org";
+    };
   };
+
   security.acme.acceptTerms = true;
   security.acme.defaults.email = "admin+acme@locahlo.st";
 }
