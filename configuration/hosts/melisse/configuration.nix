@@ -30,7 +30,9 @@
     interface = "ens18";
   };
 
+  networking.firewall.allowedTCPPorts = [ 8000 ];
   services.vaultwarden.enable = true;
+  services.vaultwarden.config.ROCKET_ADDRESS = "0.0.0.0";
 
   system.stateVersion = "22.05";
 }
