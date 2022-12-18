@@ -6,6 +6,7 @@
     ../../common/flakes.nix
     ../../common/server.nix
     ./monitoring.nix
+    ./unifi.nix
   ];
 
   boot.loader.grub.enable = true;
