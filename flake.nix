@@ -39,6 +39,10 @@
         system = "x86_64-linux";
         modules = [ ./configuration/hosts/kourou/configuration.nix ];
       };
+      pluto = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/pluto/configuration.nix ];
+      };
 
       #-------------
       # Homelab part
