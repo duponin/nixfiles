@@ -43,6 +43,11 @@
         system = "x86_64-linux";
         modules = [ ./configuration/hosts/pluto/configuration.nix ];
       };
+      houston = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/houston/configuration.nix ];
+      };
+
 
       #-------------
       # Homelab part
