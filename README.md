@@ -1,26 +1,35 @@
-#+TITLE: Nixfiles
+# Nixfiles
 
-=dupon.in= infrastructure as code, battery included yet.
+My infrastructure as code.
 
-* Install a VM
+## Useful snippets
+### SSH in without polluting known_hosts
 
-1. add network to VM (done on hypervisor) (likely obsolete config but anyway)
-   1. =ip a add 10.0.0.2/24 dev ens18=
-   2. =ip r add default via 10.0.0.1 dev ens18=
-   3. =echo "nameserver 1.1.1.1" > /etc/nameserver= (or you can do it later if you hate Qwerty like I do)
-2. connect via SSH to VM
-   1. =passwd= (whatever you want, it's temporary)
-   2. =ssh -J YOUR_PROXY nixos@VM=
-   3. =sudo -i=
-3. setup disk
-   1. =parted /dev/sda -- mklabel msdos=
-   2. =parted /dev/sda -- mkpart primary 0% 100%=
-   3. =mkfs.ext4 -L nixos /dev/sda1=
-   4. =mount /dev/disk/by-label/nixos /mnt=
-4. install system
-   1. =nixos-generate-config --root /mnt=
-      - save =hardware-configuration.nix= in this repo (maybe not required if that’s an usual VM)
-   2. =nix-env -iA nixos.git=
-   3. =nixos-install --no-root-passwd --flake "git+https://codeberg.org/duponin/nixfiles#<HOSTNAME>"=
-5. reboot
-   1. enjoy
+``` shell
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=false <DESTINATION>
+```
+
+## Install a Host
+### Disk Setup
+
+``` shell
+parted /dev/sda -- mklabel msdos
+parted /dev/sda -- mkpart primary 0% 100%
+mkfs.ext4 -L nixos /dev/sda1
+mount /dev/disk/by-label/nixos /mnt
+```
+
+## Install System
+
+``` shell
+nixos-generate-config --root /mnt
+nixos-install --no-root-passwd --verbose --flake "git+https://codeberg.org/duponin/nixfiles#<HOSTNAME>"
+reboot
+```
+
+## Fix a Broken Install
+
+1. reboot on ISO
+2. become super user
+3. `mount /dev/disk/by-label/nixos /mnt && nixos-install --no-root-passwd --verbose --flake "git+http://codeberg.org/duponin/nixfiles#<HOSTNAME>"`
+4. reboot
