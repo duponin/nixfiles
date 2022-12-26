@@ -24,7 +24,7 @@
     containers.homeassistant = {
       volumes = [ "home-assistant:/config" ];
       environment.TZ = "Europe/Paris";
-      image = "ghcr.io/home-assistant/home-assistant:2022.12.7"; # Warning: if the tag does not change, the image will not be updated
+      image = "ghcr.io/home-assistant/home-assistant:2022.12.8"; # Warning: if the tag does not change, the image will not be updated
       extraOptions = [
         "--network=host"
       ];
