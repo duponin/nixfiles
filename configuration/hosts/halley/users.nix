@@ -32,7 +32,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     users.duponin = {
-      home.stateVersion = "22.11";
+      home.stateVersion = "22.05";
         programs.emacs.enable = true;
         services.emacs = {
           enable = true;
