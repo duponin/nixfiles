@@ -28,6 +28,7 @@
       element-desktop
       signal-desktop
       clementine
+      anki
 
       cura
       freecad

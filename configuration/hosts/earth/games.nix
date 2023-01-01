@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 {
-  programs.steam.enable = false;
+  programs.steam.enable = true;
 
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
