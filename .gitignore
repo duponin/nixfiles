@@ -1,3 +1,4 @@
 # We don't want Nix results
 /result
 /.direnv/
+/k8s-homelab/
