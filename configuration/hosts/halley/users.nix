@@ -29,76 +29,77 @@
   };
 
   home-manager = {
-   useGlobalPkgs = true;
-   useUserPackages = true;
-   users.duponin = {
-      programs.emacs.enable = true;
-      services.emacs = {
-        enable = true;
-        defaultEditor = false;
-        client.enable = true;
-      };
-      programs.git = {
-        enable = true;
-        package = pkgs.gitFull;
-        userName = "duponin";
-        userEmail = "duponin@locahlo.st";
-        delta.enable = true;
-        extraConfig.pull.ff = "only";
-      };
-      programs.direnv = {
-        enable = true;
-        nix-direnv.enable = true;
-      };
-      programs.zsh = {
-        enable = true;
-        enableAutosuggestions = true;
-        enableCompletion = true;
-        enableSyntaxHighlighting = true;
-        autocd = true;
-
-        history.extended = true;
-
-        oh-my-zsh.enable = true;
-        oh-my-zsh.theme = "ys";
-
-        shellAliases = {
-          ":q" = "echo 'You are not in Vim, you stupid...'";
-          df = "df -h";
-          du = "du -h";
-          ezsh = "echo 'Reloading ZSH...' && exec zsh";
-          free = "free -h";
-          history = "history -i";
-          meteo = "curl http://wttr.in/$CITY";
-          meteoo = "curl http://v2.wttr.in/$CITY";
-          miex = "iex -S mix";
-          mips = "mix phx.server";
-          mpnv = "mpv --no-video";
-          nsl = "nix-shell";
-          ssh-proxy = "ssh -D 1080 -q -C -N";
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.duponin = {
+      home.stateVersion = "22.11";
+        programs.emacs.enable = true;
+        services.emacs = {
+          enable = true;
+          defaultEditor = false;
+          client.enable = true;
         };
-        envExtra = ''
-          COMPLETION_WAITING_DOTS="true"
-          ENABLE_CORRECTION="true"
-          ERL_AFLAGS="-kernel shell_history enabled"
-          OPENER=$EDITOR
-        '';
-        initExtra = ''
-          #if [[ "$(ssh-add -l)" = "The agent has no identities." ]]; then ssh-add; fi
+        programs.git = {
+          enable = true;
+          package = pkgs.gitFull;
+          userName = "duponin";
+          userEmail = "duponin@locahlo.st";
+          delta.enable = true;
+          extraConfig.pull.ff = "only";
+        };
+        programs.direnv = {
+          enable = true;
+          nix-direnv.enable = true;
+        };
+        programs.zsh = {
+          enable = true;
+          enableAutosuggestions = true;
+          enableCompletion = true;
+          enableSyntaxHighlighting = true;
+          autocd = true;
 
-          mkcd ()
-          {
-              mkdir -p $1 && cd $1
-          }
-        '';
-      };
-      programs.tmux.enable = true;
-      programs.neovim = {
-        enable = true;
-        viAlias = true;
-        vimAlias = true;
-        vimdiffAlias = true;
-      };
-    };
+          history.extended = true;
+
+          oh-my-zsh.enable = true;
+          oh-my-zsh.theme = "ys";
+
+          shellAliases = {
+            ":q" = "echo 'You are not in Vim, you stupid...'";
+            df = "df -h";
+            du = "du -h";
+            ezsh = "echo 'Reloading ZSH...' && exec zsh";
+            free = "free -h";
+            history = "history -i";
+            meteo = "curl http://wttr.in/$CITY";
+            meteoo = "curl http://v2.wttr.in/$CITY";
+            miex = "iex -S mix";
+            mips = "mix phx.server";
+            mpnv = "mpv --no-video";
+            nsl = "nix-shell";
+            ssh-proxy = "ssh -D 1080 -q -C -N";
+          };
+          envExtra = ''
+            COMPLETION_WAITING_DOTS="true"
+            ENABLE_CORRECTION="true"
+            ERL_AFLAGS="-kernel shell_history enabled"
+            OPENER=$EDITOR
+          '';
+          initExtra = ''
+            #if [[ "$(ssh-add -l)" = "The agent has no identities." ]]; then ssh-add; fi
+
+            mkcd ()
+            {
+                mkdir -p $1 && cd $1
+            }
+          '';
+        };
+        programs.tmux.enable = true;
+        programs.neovim = {
+          enable = true;
+          viAlias = true;
+          vimAlias = true;
+          vimdiffAlias = true;
+        };
+     };
   };
 }
