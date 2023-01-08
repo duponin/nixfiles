@@ -1,7 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  networking.firewall.allowedTCPPorts = [ 8123 ];
+  networking.firewall.allowedTCPPorts = [
+    8123 # Home-Assistant
+    21064 # Homekit integration
+  ];
+  networking.firewall.allowedUDPPorts = [
+    5353 # Device discovery
+  ];
 
   virtualisation.oci-containers = {
     backend = "docker";
