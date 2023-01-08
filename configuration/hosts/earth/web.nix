@@ -83,6 +83,11 @@
       enableACME = true;
       root = "/var/www/tbm.melisse.org";
     };
+    "onedayonephoto.dupon.in" = {
+      forceSSL = true;
+      enableACME = true;
+      root = "/var/www/onedayonephoto.dupon.in";
+    };
   };
 
   security.acme.acceptTerms = true;
