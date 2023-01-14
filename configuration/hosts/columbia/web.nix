@@ -10,42 +10,23 @@
     recommendedTlsSettings = true;
   };
   services.nginx.virtualHosts = {
-    "earth.locahlost.net" = {
+    "loc1.locahlost.net" = {
       default = true;
       forceSSL = true;
       enableACME = true;
-      root = "/var/www/earth.locahlost.net";
-    };
-    "tiger.dupon.in" = {
-      forceSSL = true;
-      enableACME = true;
-      locations."/" = {
-        proxyPass = "http://localhost:3000";
-      };
+      root = "/var/www/loc1.locahlost.net";
     };
     "indra.dupon.in" = {
       forceSSL = true;
       enableACME = true;
       locations."/" = {
-        proxyPass = "http://localhost:6000";
+        proxyPass = "http://earth.locahlost.net:6000";
       };
     };
     "indra.social" = {
       forceSSL = true;
       enableACME = true;
       root = "/var/www/indra.social";
-    };
-    "mastodon.test.dupon.in" = {
-      forceSSL = true;
-      enableACME = true;
-      locations."/" = {
-        proxyPass = "http://localhost:5000";
-        extraConfig = ''
-          allow 127.0.0.1;
-          allow ::1;
-          deny all;
-        '';
-      };
     };
     "udongein.xyz" = {
       forceSSL = true;

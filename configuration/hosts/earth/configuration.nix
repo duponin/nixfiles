@@ -14,7 +14,6 @@
       ./indra.nix
       ./workstation.nix
       ./games.nix
-      ./web.nix
       ./zfs.nix
     ];
 
