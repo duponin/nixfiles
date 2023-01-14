@@ -47,6 +47,10 @@
         system = "x86_64-linux";
         modules = [ ./configuration/hosts/houston/configuration.nix ];
       };
+      columbia = nixos.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [ ./configuration/hosts/columbia/configuration.nix ];
+      };
 
 
       #-------------
