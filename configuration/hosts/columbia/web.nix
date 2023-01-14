@@ -8,6 +8,7 @@
     recommendedProxySettings = true;
     recommendedGzipSettings = true;
     recommendedTlsSettings = true;
+    statusPage = true;
   };
   services.nginx.virtualHosts = {
     "loc1.locahlost.net" = {
