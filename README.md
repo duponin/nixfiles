@@ -16,6 +16,7 @@ ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=false <DESTINATION>
 parted /dev/sda -- mklabel msdos
 parted /dev/sda -- mkpart primary 0% 100%
 mkfs.ext4 -L nixos /dev/sda1
+sleep 2
 mount /dev/disk/by-label/nixos /mnt
 ```
 
