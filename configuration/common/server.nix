@@ -1,6 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    ./logs-agent.nix
+  ];
+
   security.sudo.wheelNeedsPassword = false;
   security.doas.wheelNeedsPassword = false;
   nix.trustedUsers = [ "@wheel" ];

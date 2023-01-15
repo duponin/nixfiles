@@ -5,6 +5,7 @@
     ./hardware-configuration.nix
     ../../common/flakes.nix
     ../../common/server.nix
+    ./logs-sink.nix
     ./monitoring.nix
     ./postgresql.nix
   ];
