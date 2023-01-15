@@ -9,9 +9,12 @@
     ../../common/server.nix
   ];
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/sda";
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelParams = [
+    "iommu.passthrough=1" # should be fixed by 6.x.x
+  ];
+
 
   networking.hostName = "umbriel";
   networking.domain = "locahlost.net";
