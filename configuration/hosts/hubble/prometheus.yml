@@ -20,6 +20,7 @@ scrape_configs:
         - pluto.locahlost.net
         - houston.locahlost.net
         - columbia.locahlost.net
+        - umbriel.locahlost.net
 
   - job_name: "locahlost-zfs-exporter"
     metrics_path: /prometheus/zfs/metrics

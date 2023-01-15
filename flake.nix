@@ -51,15 +51,14 @@
         system = "x86_64-linux";
         modules = [ ./configuration/hosts/columbia/configuration.nix ];
       };
+      umbriel = nixos.lib.nixosSystem {
+        system = "aarch64-linux";
+        modules = [ ./configuration/hosts/umbriel/configuration.nix ];
+      };
 
 
       #-------------
       # Homelab part
-
-      nomad-01 = nixos-unstable.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./configuration/hosts/nomad-01/configuration.nix ];
-      };
 
       #-----
       # Misc
