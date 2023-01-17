@@ -19,7 +19,6 @@ scrape_configs:
         - melisse.locahlost.net
         - pluto.locahlost.net
         - houston.locahlost.net
-        - columbia.locahlost.net
         - umbriel.locahlost.net
 
   - job_name: "locahlost-zfs-exporter"
@@ -39,4 +38,4 @@ scrape_configs:
     metrics_path: /prometheus/nginx/metrics
     static_configs:
       - targets:
-        - columbia.locahlost.net
+        - umbriel.locahlost.net
