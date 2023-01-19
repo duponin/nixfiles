@@ -33,6 +33,7 @@ scrape_configs:
       - targets:
         - endeavour.locahlost.net
         - pluto.locahlost.net
+        - umbriel.locahlost.net
 
   - job_name: "locahlost-nginx-exporter"
     metrics_path: /prometheus/nginx/metrics
