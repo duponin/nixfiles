@@ -25,6 +25,7 @@
         elixir
         gcc
         cmake
+        gnumake
         file
         imagemagick
         ffmpeg
