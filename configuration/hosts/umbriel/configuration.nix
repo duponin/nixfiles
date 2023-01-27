@@ -5,6 +5,7 @@
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./monitoring.nix
+    ./pleroma.nix
     ./postgresql.nix
     ./web.nix
     ../../common/flakes.nix
