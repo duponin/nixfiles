@@ -30,6 +30,7 @@
       host = "localhost";
       name = "udongein_gitea";
       createDatabase = false;
+      type = "mysql";
     };
   };
 }
