@@ -24,6 +24,7 @@
       packages = with pkgs; [
         elixir
         gcc
+        coreutils # needed for crypt.h, compilation
         cmake
         gnumake
         file
