@@ -18,6 +18,13 @@
     "iommu.passthrough=1" # should be fixed by 6.x.x
   ];
 
+  users.users.naiji = {
+    isNormalUser = true;
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMNkUTqKof4lWaddRzsrQz+huo4BLJc/2EGmIqieqJbP naiji@laptop"
+    ];
+  };
+
   networking.hostName = "umbriel";
   networking.domain = "locahlost.net";
   networking.nameservers = [ "1.1.1.1" "2606:4700:4700::1111" ];
