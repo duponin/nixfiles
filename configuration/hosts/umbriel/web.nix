@@ -56,7 +56,7 @@
       forceSSL = true;
       enableACME = true;
       locations."/" = {
-        proxyPass = "http://192.168.0.11:6662";
+        proxyPass = "http://localhost:3000";
       };
       extraConfig = ''
         access_log /var/log/nginx/access_dev.udongein.xyz.log;
