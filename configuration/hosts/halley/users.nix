@@ -18,7 +18,7 @@
       vscodium
       tdesktop
       element-desktop
-      barrier
+      evolution
 
       cura
       freecad
