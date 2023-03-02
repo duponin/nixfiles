@@ -43,7 +43,7 @@
       enableACME = true;
       locations."/" = {
         proxyWebsockets = true;
-        proxyPass = "http://localhost:4000";
+        proxyPass = "http://192.168.0.11:4000";
       };
       locations."/etc/" = {
         root = "/var/www/udongein.xyz";
