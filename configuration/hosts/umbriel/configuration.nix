@@ -8,6 +8,7 @@
     ./monitoring.nix
     ./pleroma.nix
     ./postgresql.nix
+    ./sshocial.nix
     ./web.nix
     ../../common/flakes.nix
     ../../common/server.nix
