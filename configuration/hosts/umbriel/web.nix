@@ -62,6 +62,31 @@
         access_log /var/log/nginx/access_dev.udongein.xyz.log;
       '';
     };
+    "glitch-lily.locahlo.st" = {
+      forceSSL = true;
+      enableACME = true;
+      locations."/" = {
+        root = "/var/www/udongein.xyz/frontend/glitch-lily";
+        tryFiles = "$uri $uri/ /index.html";
+      };
+      # this is absolutely cursed, but this is the best solution I found :(
+      locations."/api" = {
+        proxyPass = "http://192.168.0.11:4000";
+      };
+      locations."/instance" = {
+        proxyPass = "http://192.168.0.11:4000";
+      };
+      locations."/nodeinfo" = {
+        proxyPass = "http://192.168.0.11:4000";
+      };
+      locations."/oauth" = {
+        proxyPass = "http://192.168.0.11:4000";
+      };
+      extraConfig = ''
+        access_log /var/log/nginx/access_glitch-lily.locahlo.st.log;
+        error_log /var/log/nginx/error_glitch-lily.locahlo.st.log;
+      '';
+    };
     "monitoring.locahlo.st" = {
       forceSSL = true;
       enableACME = true;
