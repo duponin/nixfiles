@@ -5,14 +5,12 @@
     ./hardware-configuration.nix
     ../../common/flakes.nix
     ../../common/server.nix
-    ./monitoring.nix
-    ./postgresql.nix
-    ./zfs.nix
+    # ./web.nix
   ];
 
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
-  boot.loader.grub.device = "/dev/sdf";
+  boot.loader.grub.device = "/dev/sda";
 
   networking.hostName = "endeavour";
   networking.domain = "locahlost.net";
@@ -21,16 +19,36 @@
   networking.useDHCP = false;
   networking.interfaces.eno1 = {
     ipv4 = {
-      addresses = [{
-        address = "192.168.0.43";
-        prefixLength = 24;
-      }];
+      addresses = [
+        {
+          address = "192.168.0.40";
+          prefixLength = 24;
+        }
+        {
+          address = "192.168.0.43";
+          prefixLength = 24;
+        }
+        {
+          address = "192.168.0.49";
+          prefixLength = 24;
+        }
+      ];
     };
     ipv6 = {
-      addresses = [{
-        address = "2a01:e0a:18c:37b0::43";
-        prefixLength = 64;
-      }];
+      addresses = [
+        {
+          address = "2a01:e0a:18c:37b0::40";
+          prefixLength = 64;
+        }
+        {
+          address = "2a01:e0a:18c:37b0::43";
+          prefixLength = 64;
+        }
+        {
+          address = "2a01:e0a:18c:37b0::49";
+          prefixLength = 64;
+        }
+      ];
     };
   };
   networking.defaultGateway = {
