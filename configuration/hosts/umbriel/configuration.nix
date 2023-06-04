@@ -39,20 +39,12 @@
           address = "192.168.0.40";
           prefixLength = 24;
         }
-        {
-          address = "192.168.0.49";
-          prefixLength = 24;
-        }
       ];
     };
     ipv6 = {
       addresses = [
         {
           address = "2a01:e0a:18c:37b0::40";
-          prefixLength = 64;
-        }
-        {
-          address = "2a01:e0a:18c:37b0::49";
           prefixLength = 64;
         }
       ];
