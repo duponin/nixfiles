@@ -18,6 +18,7 @@
 
   networking.useDHCP = false;
   networking.interfaces.ens18 = {
+    mtu = 1280;
     ipv4 = {
       addresses = [
         {
