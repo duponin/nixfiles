@@ -6,6 +6,7 @@
     ../../common/flakes.nix
     ../../common/server.nix
     ./web.nix
+    ./gitea.nix
   ];
 
   boot.loader.grub.enable = true;
