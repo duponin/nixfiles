@@ -17,7 +17,7 @@
   networking.nameservers = [ "1.1.1.1" "2606:4700:4700::1111" ];
 
   networking.useDHCP = false;
-  networking.interfaces.eno1 = {
+  networking.interfaces.ens18 = {
     ipv4 = {
       addresses = [
         {
@@ -53,11 +53,11 @@
   };
   networking.defaultGateway = {
     address = "192.168.0.254";
-    interface = "eno1";
+    interface = "ens18";
   };
   networking.defaultGateway6 = {
     address = "fe80::f6ca:e5ff:fe4a:9406";
-    interface = "eno1";
+    interface = "ens18";
   };
 
   system.stateVersion = "22.05";
