@@ -5,7 +5,7 @@
     ./hardware-configuration.nix
     ../../common/flakes.nix
     ../../common/server.nix
-    # ./web.nix
+    ./web.nix
   ];
 
   boot.loader.grub.enable = true;
