@@ -7,6 +7,7 @@
     ../../common/server.nix
     ./web.nix
     ./gitea.nix
+    ./vaultwarden.nix
   ];
 
   boot.loader.grub.enable = true;

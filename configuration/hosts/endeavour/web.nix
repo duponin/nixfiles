@@ -104,7 +104,7 @@
       enableACME = true;
       locations."/" = {
         proxyWebsockets = true;
-        proxyPass = "http://melisse.locahlost.net:8000";
+        proxyPass = "http://localhost:8000";
       };
       extraConfig = ''
         access_log /var/log/nginx/access_bitwarden.melisse.org.log;
